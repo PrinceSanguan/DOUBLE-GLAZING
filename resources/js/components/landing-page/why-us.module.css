@@ -1,0 +1,23 @@
+/* why-us.module.css */
+
+.whyUsSection {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .whyUsSection {
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2.5rem 5vw;
+  }
+}
+
+@media (min-width: 1025px) {
+  .whyUsSection {
+    padding: 4rem 10vw;
+    gap: 3rem;
+  }
+}

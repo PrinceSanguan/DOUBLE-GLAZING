@@ -1,6 +1,15 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Head, Link } from '@inertiajs/react';
+
+import { Head } from '@inertiajs/react';
+import Header from '@/components/ui/header';
+import Footer from '@/components/ui/footer';
+import Hero from '@/components/landing-page/hero';
+import AboutSection from '@/components/landing-page/about-section';
+import WhyUs from '@/components/landing-page/why-us';
+import Product from '@/components/landing-page/product';
+import Testimonial from '@/components/landing-page/testimonial';
+import Faq from '@/components/landing-page/faq';
+import Cta from '@/components/landing-page/cta';
+import FinalCta from '@/components/landing-page/final-cta';
 
 export default function Welcome() {
     return (
@@ -9,25 +18,18 @@ export default function Welcome() {
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             </Head>
-
-            <div className="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-6">
-                <Card className="w-full max-w-md rounded-2xl shadow-xl">
-                    <CardContent className="p-8 text-center">
-                        <h1 className="mb-4 text-4xl font-bold text-gray-800">THIS IS MY PERSONAL BOILERPLATE</h1>
-                        <p className="mb-6 text-lg text-gray-600">Simple and straightforward starter template.</p>
-
-                        <div className="flex justify-center gap-4">
-                            <Button variant="default" asChild>
-                                <Link href={route('auth.login')}>Login</Link>
-                            </Button>
-
-                            <Button variant="outline" asChild>
-                                <Link href={route('auth.register')}>Register</Link>
-                            </Button>
-                        </div>
-                    </CardContent>
-                </Card>
-            </div>
+            <Header />
+            <main style={{ margin: 0, padding: 0, overflow: 'hidden' }}>
+                <Hero />
+                <AboutSection />
+                <WhyUs />
+                <Product />
+                <Testimonial />
+                <Faq />
+                <Cta />
+                <FinalCta />
+            </main>
+            <Footer />
         </>
     );
 }

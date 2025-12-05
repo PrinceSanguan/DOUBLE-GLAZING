@@ -1,0 +1,28 @@
+/* about-section.module.css */
+
+/* Mobile first styles */
+:root {
+  --section-padding: 1.5rem;
+}
+.aboutSection {
+  padding: var(--section-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .aboutSection {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .aboutSection {
+    padding: 3rem 6vw;
+    gap: 3rem;
+  }
+}

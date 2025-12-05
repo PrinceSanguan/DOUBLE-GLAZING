@@ -1,0 +1,21 @@
+/* faq.module.css */
+
+.faqSection {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .faqSection {
+    padding: 2.5rem 5vw;
+  }
+}
+
+@media (min-width: 1025px) {
+  .faqSection {
+    padding: 3rem 15vw;
+    gap: 2rem;
+  }
+}

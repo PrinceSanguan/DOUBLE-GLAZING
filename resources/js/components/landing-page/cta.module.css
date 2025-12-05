@@ -1,0 +1,24 @@
+/* cta.module.css */
+
+.ctaSection {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .ctaSection {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.5rem 3vw;
+  }
+}
+
+@media (min-width: 1025px) {
+  .ctaSection {
+    padding: 3rem 10vw;
+    gap: 2rem;
+  }
+}
