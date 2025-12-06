@@ -1,21 +1,21 @@
 /* faq.module.css */
 
-.faqSection {
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.faqSection { --section-padding: clamp(16px, 3vw, 32px); padding: var(--section-padding); box-sizing: border-box; margin-top: clamp(24px, 4vw, 48px); scroll-margin-top: calc(var(--header-height) + 8px); }
+.faqContainer { max-width: 1860px; width: 100%; margin: 0 auto; }
+.faqFrame { background: #ffffff; color: #111111; border-radius: 1.25rem; padding: clamp(16px, 3vw, 32px); font-family: 'Instrument Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+.faqHeader { margin-bottom: clamp(12px, 2vw, 16px); }
+.title { font-size: clamp(1.75rem, 4.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.01em; color: #111111; }
+.titleLight { font-weight: 300; }
+.titleItalic { font-style: italic; }
+.faqList { display: grid; gap: clamp(8px, 2vw, 12px); }
+@media (min-width: 768px) {
+	/* Use CSS grid with fixed two columns to keep items in their columns and prevent reflow between columns */
+	.faqList { display: grid; grid-template-columns: repeat(2, 1fr); align-items: start; }
 }
-
-@media (min-width: 641px) and (max-width: 1024px) {
-  .faqSection {
-    padding: 2.5rem 5vw;
-  }
-}
-
-@media (min-width: 1025px) {
-  .faqSection {
-    padding: 3rem 15vw;
-    gap: 2rem;
-  }
-}
+.faqItem { background: #101014; border: 1px solid rgba(0,0,0,0.25); border-radius: 0.75rem; padding: 0.75rem 1rem; color: #e6e6e6; transition: border-color 160ms ease, box-shadow 160ms ease; }
+.faqItem:hover { border-color: rgba(255,255,255,0.18); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+.faqItem.open { border-color: rgba(255,255,255,0.22); }
+.faqQ { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; width: 100%; background: transparent; border: 0; padding: 0.25rem 0; text-align: left; cursor: pointer; font-weight: 600; color: #e6e6e6; font-size: clamp(1rem, 2.4vw, 1.125rem); }
+.faqQ:focus-visible { outline: 2px solid #9fb7ff; outline-offset: 3px; border-radius: 0.5rem; }
+.faqToggle { display: inline-block; width: 1.25rem; height: 1.25rem; border-radius: 0.25rem; background: #2e2e35; color: #fff; font-weight: 700; line-height: 1.25rem; text-align: center; }
+.faqA { color: #c7c7c7; margin-top: 0.5rem; font-size: clamp(0.95rem, 2.2vw, 1.05rem); line-height: 1.8; }

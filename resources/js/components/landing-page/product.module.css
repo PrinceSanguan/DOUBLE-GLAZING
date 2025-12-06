@@ -1,23 +1,18 @@
 /* product.module.css */
 
-.productSection {
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+.productSection { --section-padding: clamp(16px, 3vw, 32px); padding: var(--section-padding); box-sizing: border-box; margin-top: clamp(24px, 4vw, 48px); scroll-margin-top: calc(var(--header-height) + 8px); }
+.productContainer { max-width: 1860px; width: 100%; margin: 0 auto; }
+.productFrame { background: #ffffff; color: #111111; border-radius: 1.25rem; padding: clamp(16px, 3vw, 32px); font-family: 'Instrument Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+.productHeader { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: clamp(12px, 2vw, 16px); }
+.title { font-size: clamp(1.75rem, 4.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.01em; color: #111111; }
+.titleLight { font-weight: 300; }
+.titleItalic { font-style: italic; }
+.productGrid { display: grid; grid-template-columns: 1fr; gap: clamp(12px, 2vw, 16px); }
+.card { background: #101014; border: 1px solid rgba(0,0,0,0.25); border-radius: 0.75rem; overflow: hidden; color: #e6e6e6; }
+.cardImg { height: 9rem; background: linear-gradient(135deg,#9fb7ff,#d7e1ff); }
+.cardBody { padding: 1rem; }
+.cardTitle { font-weight: 600; color: #e6e6e6; font-size: clamp(1rem, 2.4vw, 1.125rem); }
+.cardText { color: #c7c7c7; font-size: clamp(0.95rem, 2.2vw, 1.05rem); margin-top: 0.25rem; line-height: 1.7; }
 
-@media (min-width: 641px) and (max-width: 1024px) {
-  .productSection {
-    flex-direction: row;
-    gap: 2.5rem;
-    padding: 2.5rem 5vw;
-  }
-}
-
-@media (min-width: 1025px) {
-  .productSection {
-    padding: 4rem 10vw;
-    gap: 3rem;
-  }
-}
+@media (min-width: 640px) { .productGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .productGrid { grid-template-columns: repeat(3, 1fr); } }

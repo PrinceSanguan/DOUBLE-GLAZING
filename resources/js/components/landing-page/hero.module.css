@@ -1,17 +1,30 @@
 /* hero.module.css */
 
 .heroSection {
-  padding: 0;
+  /* Uniform space around the container */
+  --section-padding: clamp(16px, 3vw, 32px);
+  padding: var(--section-padding);
   margin: 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* Push below fixed header so the visible top gap equals side gaps */
+  margin-top: var(--header-height);
+}
+
+.heroContainer {
+  width: 100%;
+  max-width: 1860px;
+  margin: 0 auto;
 }
 
 .heroFrame {
   position: relative;
-  height: 80vh;
+  /* Fill viewport while accounting for outer padding and fixed header (vh fallback) */
+  height: calc(100vh - (var(--header-height) + var(--section-padding)) - (var(--section-padding)));
+  /* Prefer dynamic viewport on mobile browsers */
+  height: calc(100dvh - (var(--header-height) + var(--section-padding)) - (var(--section-padding)));
+  min-height: 520px;
   border-radius: 1.5rem;
   overflow: hidden;
   background: #101014;
@@ -32,9 +45,17 @@
   inset: 0;
   display: grid;
   grid-template-columns: 1fr;
-  align-items: end;
-  padding: 2rem;
+  align-items: stretch;
+  padding: var(--section-padding);
   margin: 0;
+}
+
+.textBlock {
+  position: absolute;
+  left: var(--section-padding);
+  bottom: var(--section-padding);
+  right: auto;
+  max-width: min(90ch, 95vw);
 }
 
 .title { font-size: clamp(2.25rem, 7vw, 6rem); font-weight: 600; color: #e6e6e6; }
@@ -44,10 +65,11 @@
 
 .overlayCard {
   position: absolute;
-  right: 0;
-  bottom: 2rem;
-  width: clamp(32rem, 52vw, 44rem) !important;
-  max-width: none !important;
+  right: var(--section-padding);
+  bottom: var(--section-padding);
+  width: clamp(22rem, 42vw, 34rem) !important;
+  max-width: 34rem !important;
+  min-width: 22rem !important;
   border-radius: 1rem;
   background: rgba(20,20,24,0.75);
   backdrop-filter: blur(6px);
@@ -59,7 +81,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
-.cardImage { width: 100%; height: 12rem; background: linear-gradient(135deg,#9fb7ff,#d7e1ff); }
+.cardImage { width: 100%; height: 9rem; background: linear-gradient(135deg,#9fb7ff,#d7e1ff); }
 .cardBody { padding: 1rem; display: grid; gap: 0.5rem; width: 100%; }
 .cardTitle { font-size: 1.1rem; font-weight: 600; }
 .cardText { font-size: 0.9rem; color: #c7c7c7; }
@@ -67,11 +89,27 @@
 .cardMeta { font-size: 0.8rem; opacity: 0.75; }
 .cardAction { background: #2e2e35; color: #fff; border: none; border-radius: 0.5rem; padding: 0.4rem 0.6rem; }
 
-@media (min-width: 641px) and (max-width: 1024px) {
-  .heroSection { padding: 0; }
+@media (min-width: 1025px) {
+  .overlayCard { width: 34rem !important; max-width: 34rem !important; }
 }
 
-@media (min-width: 1025px) {
-  .heroSection { padding: 0; }
-  .overlayCard { width: 40rem !important; }
+/* Small screens: keep overlay within the same side insets */
+@media (max-width: 640px) {
+  .textBlock {
+    /* Lift text above the full-width overlay on small screens */
+    bottom: calc(var(--section-padding) + 11rem);
+    left: var(--section-padding);
+    right: var(--section-padding);
+    max-width: none;
+  }
+  .overlayCard {
+    left: var(--section-padding);
+    right: var(--section-padding);
+    bottom: var(--section-padding);
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    grid-template-rows: auto 1fr auto;
+  }
+  .cardImage { height: 7rem; }
 }

@@ -1,28 +1,43 @@
 /* about-section.module.css */
 
-/* Mobile first styles */
-:root {
-  --section-padding: 1.5rem;
-}
 .aboutSection {
+  --section-padding: clamp(16px, 3vw, 32px);
   padding: var(--section-padding);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  margin: clamp(24px, 4vw, 48px) 0 0 0;
+  box-sizing: border-box;
+  scroll-margin-top: calc(var(--header-height) + 8px);
 }
 
-/* Tablet */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .aboutSection {
-    flex-direction: row;
-    gap: 2rem;
-  }
+.aboutContainer { max-width: 1860px; width: 100%; margin: 0 auto; }
+
+.aboutFrame {
+  background: #ffffff;
+  color: #111111;
+  border-radius: 1.25rem;
+  padding: clamp(16px, 3vw, 32px);
+  font-family: 'Instrument Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
-/* Desktop */
-@media (min-width: 1025px) {
-  .aboutSection {
-    padding: 3rem 6vw;
-    gap: 3rem;
-  }
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 3vw, 32px);
+}
+
+.title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.01em; color: #111111; }
+.titleLight { font-weight: 300; }
+.titleItalic { font-style: italic; }
+.aboutSubtitle { color: #333333; font-size: clamp(1rem, 2.2vw, 1.125rem); margin-top: 0.5rem; }
+
+.aboutText { color: #2a2a2a; font-size: clamp(0.95rem, 2vw, 1.05rem); line-height: 1.8; margin-top: 0.75rem; }
+
+.aboutImage {
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg,#9fb7ff,#d7e1ff);
+}
+
+@media (min-width: 768px) {
+  .aboutGrid { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
 }

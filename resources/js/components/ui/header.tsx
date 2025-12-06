@@ -6,16 +6,12 @@ const Header = () => {
 	return (
 		<header className={styles.header}>
 			<nav className={styles.nav} aria-label="Primary">
-				<div className={styles.brand}>//</div>
-				<ul className={styles.links}>
-					<li><Link href="#properties">Properties</Link></li>
-					<li><Link href="#neighborhoods">Neighborhoods</Link></li>
-					<li><Link href="#about">About</Link></li>
-					<li><Link href="#buy-sell">Buy / Sell</Link></li>
-				</ul>
+				<Link href="/" className={styles.brand} aria-label="Home">
+					<img src="/images/select-logo.svg" alt="Select logo" className={styles.logo} />
+				</Link>
 				<div className={styles.actions}>
 					<Link href="#contact" className={styles.contact}>Contact us</Link>
-					<Button className={styles.bookBtn} variant="default">Booking now</Button>
+					<Button className={styles.bookBtn} variant="default">Free Quote</Button>
 				</div>
 			</nav>
 		</header>

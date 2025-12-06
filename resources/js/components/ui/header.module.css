@@ -4,12 +4,19 @@
   width: 100%;
   background: #1f1f22;
   color: #e6e6e6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: var(--header-height);
 }
 
 .nav {
-  max-width: 1280px;
+  max-width: 1860px;
   margin: 0 auto;
-  padding: 1rem 6vw;
+  height: 100%;
+  padding: 0 clamp(16px, 6vw, 48px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,6 +27,12 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   opacity: 0.9;
+}
+
+.logo {
+  height: calc(var(--header-height) - 24px);
+  width: auto;
+  display: block;
 }
 
 .links {

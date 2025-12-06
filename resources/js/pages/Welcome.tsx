@@ -24,9 +24,10 @@ export default function Welcome() {
                 <AboutSection />
                 <WhyUs />
                 <Product />
+                   <Cta />
                 <Testimonial />
                 <Faq />
-                <Cta />
+             
                 <FinalCta />
             </main>
             <Footer />
