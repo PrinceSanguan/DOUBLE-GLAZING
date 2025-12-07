@@ -41,4 +41,9 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
 
+    'google_apps_script' => [
+        'quote_webhook' => env('GOOGLE_APPS_SCRIPT_QUOTE_WEBHOOK'),
+        'secret' => env('GOOGLE_APPS_SCRIPT_SECRET'),
+    ],
+
 ];

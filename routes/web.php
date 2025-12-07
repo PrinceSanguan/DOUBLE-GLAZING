@@ -12,8 +12,19 @@ use App\Http\Middleware\GuestMiddleware;
 */
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuoteController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Quote request page
+Route::get('/quote', function () {
+  return Inertia::render('Quote');
+})->name('quote');
+
+// Quote submission handler
+Route::post('/quote', [QuoteController::class, 'store'])
+  ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])
+  ->name('quote.store');
 
 /*
 |--------------------------------------------------------------------------

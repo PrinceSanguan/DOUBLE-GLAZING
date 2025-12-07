@@ -13,13 +13,13 @@ import FinalCta from '@/components/landing-page/final-cta';
 
 export default function Welcome() {
     return (
-        <>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <Head title="Welcome">
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             </Head>
             <Header />
-            <main style={{ margin: 0, padding: 0, overflow: 'hidden' }}>
+            <main style={{ margin: 0, padding: 0, overflow: 'hidden', flex: 1 }}>
                 <Hero />
                 <AboutSection />
                 <WhyUs />
@@ -31,6 +31,6 @@ export default function Welcome() {
                 <FinalCta />
             </main>
             <Footer />
-        </>
+        </div>
     );
 }

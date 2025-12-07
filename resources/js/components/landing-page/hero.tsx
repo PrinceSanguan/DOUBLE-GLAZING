@@ -21,6 +21,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/shutterstock_11453
 									<span className={styles.titleItalic}>Products</span>
 								</h1>
 								<p className={styles.subtitle}>We're here to help you</p>
+								<a href="/quote" className={styles.cardAction} aria-label="Get a free quote" title="Get a free quote">Get a Free Quote</a>
 						</div>
 
 						<aside className={styles.overlayCard} aria-label="Featured product">
