@@ -5,17 +5,17 @@ const Icon = ({ i }: { i: number }) => {
 	const size = 24;
 	switch (i) {
 		case 0: // Which? Approved Installers
-			return <CheckCircle size={size} color="#101014" aria-hidden />;
+			return <CheckCircle size={size} color="#ffffff" aria-hidden />;
 		case 1: // Local & Reliable
-			return <Home size={size} color="#101014" aria-hidden />;
+			return <Home size={size} color="#ffffff" aria-hidden />;
 		case 2: // 10 Year Guarantee
-			return <ShieldCheck size={size} color="#101014" aria-hidden />;
+			return <ShieldCheck size={size} color="#ffffff" aria-hidden />;
 		case 3: // Experienced Installers
-			return <Wrench size={size} color="#101014" aria-hidden />;
+			return <Wrench size={size} color="#ffffff" aria-hidden />;
 		case 4: // Security & Energy
-			return <Lock size={size} color="#101014" aria-hidden />;
+			return <Lock size={size} color="#ffffff" aria-hidden />;
 		default: // Family-run
-			return <Users size={size} color="#101014" aria-hidden />;
+			return <Users size={size} color="#ffffff" aria-hidden />;
 	}
 };
 

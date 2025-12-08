@@ -1,5 +1,6 @@
 import styles from './final-cta.module.css';
 import { Button } from '@/components/ui/button';
+import { Link } from '@inertiajs/react';
 
 const FinalCta = () => {
 	return (
@@ -12,8 +13,10 @@ const FinalCta = () => {
 					</h3>
 					<p className={styles.finalCtaText}>Instant Online Price — Get a free window and door quote today.</p>
 					<div className={styles.finalCtaActions}>
-						<Button>Instant Online Price</Button>
-						<Button variant="secondary">Get A Quote</Button>
+						<Link href="/quote" aria-label="Free Quote">
+							<Button className={styles.primaryBtn}>Free Quote</Button>
+						</Link>
+						<Button variant="secondary" className={styles.secondaryWhiteBtn}>Contact Us</Button>
 					</div>
 				</div>
 			</div>

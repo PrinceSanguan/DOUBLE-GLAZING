@@ -1,3 +1,7 @@
+:root {
+    --brand-blue: #0a6b90;
+    --brand-blue-dark: #095e7f;
+}
 @import 'tailwindcss';
 
 @plugin 'tailwindcss-animate';
@@ -78,7 +82,7 @@
 }
 
 :root {
-    --header-height: clamp(56px, 8vh, 80px);
+    --header-height: clamp(64px, 9vh, 96px);
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);

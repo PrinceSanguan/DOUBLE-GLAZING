@@ -48,6 +48,7 @@ const Quote: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const onConfirm = () => {
     setShowModal(false);
+    try { localStorage.setItem('quoteSuccess', '1'); } catch {}
     router.visit('/');
   };
 

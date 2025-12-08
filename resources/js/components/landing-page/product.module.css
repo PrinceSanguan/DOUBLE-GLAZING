@@ -6,7 +6,7 @@
 .productHeader { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: clamp(12px, 2vw, 16px); }
 .title { font-size: clamp(1.75rem, 4.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.01em; color: #111111; }
 .titleLight { font-weight: 300; }
-.titleItalic { font-style: italic; }
+.titleItalic { font-style: italic; color: var(--brand-blue); }
 .productGrid { display: grid; grid-template-columns: 1fr; gap: clamp(12px, 2vw, 16px); }
 .card { background: #101014; border: 1px solid rgba(0,0,0,0.25); border-radius: 0.75rem; overflow: hidden; color: #e6e6e6; }
 .cardImg { height: 9rem; background: linear-gradient(135deg,#9fb7ff,#d7e1ff); }

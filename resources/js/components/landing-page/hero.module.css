@@ -61,7 +61,8 @@
 .title { font-size: clamp(2.25rem, 7vw, 6rem); font-weight: 600; color: #e6e6e6; }
 .titleLight { font-weight: 300; }
 .titleItalic { font-style: italic; }
-.subtitle { color: #c7c7c7; margin-top: 0.75rem; }
+.subtitle { color: #c7c7c7; margin-top: 0.75rem; margin-bottom: 0.5rem; }
+.textBlock .cardAction { display: inline-block; margin-top: 1.25rem; }
 
 .overlayCard {
   position: absolute;
@@ -85,9 +86,10 @@
 .cardBody { padding: 1rem; display: grid; gap: 0.5rem; width: 100%; }
 .cardTitle { font-size: 1.1rem; font-weight: 600; }
 .cardText { font-size: 0.9rem; color: #c7c7c7; }
-.cardFooter { display: flex; justify-content: space-between; align-items: center; margin-top: 0.25rem; }
+.cardFooter { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; }
 .cardMeta { font-size: 0.8rem; opacity: 0.75; }
-.cardAction { background: #2e2e35; color: #fff; border: none; border-radius: 0.5rem; padding: 0.4rem 0.6rem; }
+.cardAction { background: var(--brand-blue); color: #fff; border: none; border-radius: 0.5rem; padding: 0.4rem 0.6rem; transition: background-color 160ms ease; }
+.cardAction:hover { background: var(--brand-blue-dark); }
 
 @media (min-width: 1025px) {
   .overlayCard { width: 34rem !important; max-width: 34rem !important; }

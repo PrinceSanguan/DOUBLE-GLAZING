@@ -1,5 +1,6 @@
 import styles from './cta.module.css';
 import { Button } from '@/components/ui/button';
+import { Link } from '@inertiajs/react';
 
 const Cta = () => {
 	return (
@@ -11,8 +12,10 @@ const Cta = () => {
 						<p className={styles.ctaText}>Schedule a private viewing or speak with our agents.</p>
 					</div>
 					<div className={styles.ctaActions}>
-						<Button>Book a viewing</Button>
-						<Button variant="secondary">Contact sales</Button>
+						<Link href="/quote" aria-label="Free Quote">
+							<Button className={styles.primaryBtn}>Free Quote</Button>
+						</Link>
+						<Button variant="secondary" className={styles.secondaryWhiteBtn}>Contact Us</Button>
 					</div>
 				</div>
 			</div>

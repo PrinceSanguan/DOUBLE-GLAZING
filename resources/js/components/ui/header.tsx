@@ -10,8 +10,10 @@ const Header = () => {
 					<img src="/images/select-logo.svg" alt="Select logo" className={styles.logo} />
 				</Link>
 				<div className={styles.actions}>
-					<Link href="#contact" className={styles.contact}>Contact us</Link>
-					<Button className={styles.bookBtn} variant="default">Free Quote</Button>
+					<Link href="#contact" className={`${styles.contact} ${styles.contactWhite}`}>Contact Us</Link>
+					<Link href="/quote" aria-label="Free Quote">
+						<Button className={styles.bookBtn} variant="default">Free Quote</Button>
+					</Link>
 				</div>
 			</nav>
 		</header>

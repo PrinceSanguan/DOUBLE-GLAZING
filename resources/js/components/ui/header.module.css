@@ -50,7 +50,10 @@
 
 .actions { display: none; align-items: center; gap: 1rem; }
 .contact { opacity: 0.85; text-decoration: none; color: inherit; }
-.bookBtn { border-radius: 9999px; padding-inline: 1rem; }
+.contactWhite { background: #ffffff; color: #101014; border-radius: 0.5rem; padding: 0.45rem 0.8rem; font-weight: 600; border: 1px solid #ffffff; }
+.contactWhite:hover { background: #f2f2f2; }
+.bookBtn { border-radius: 0.5rem; padding-inline: 1rem; background: var(--brand-blue); border: 1px solid var(--brand-blue); }
+.bookBtn:hover { background: var(--brand-blue-dark); border-color: var(--brand-blue-dark); }
 
 @media (min-width: 641px) {
   .links { display: flex; }
