@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\QuoteSubmitted;
 
 class QuoteController extends Controller
 {
@@ -39,6 +41,16 @@ class QuoteController extends Controller
         } catch (\Throwable $e) {
             Log::error('Apps Script submission exception', ['error' => $e->getMessage()]);
             return response()->json(['message' => 'Submission error'], 500);
+        }
+
+        // Attempt to email sales inbox. Do not fail user-facing response if email sending fails.
+        try {
+            $to = 'sales@selectproductsonline.co.uk';
+            Mail::to($to)
+                ->cc('john@choros.io')
+                ->send(new QuoteSubmitted($data));
+        } catch (\Throwable $e) {
+            Log::error('Quote email send failed', ['error' => $e->getMessage()]);
         }
 
         return response()->json(['message' => 'Submitted']);
