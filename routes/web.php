@@ -56,6 +56,7 @@ Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleC
 */
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\GoogleReviewsController;
 
 
 Route::get('register', [RegisterController::class, 'index'])->middleware(GuestMiddleware::class)->name('auth.register');
@@ -101,3 +102,10 @@ Route::middleware([UserMiddleware::class])->group(function () {
   Route::put('user/settings/profile', [UserSettingsController::class, 'updateProfile'])->name('user.settings.updateProfile');
   Route::put('user/settings/password', [UserSettingsController::class, 'updatePassword'])->name('user.settings.updatePassword');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Public API: Google Reviews JSON
+|--------------------------------------------------------------------------
+*/
+Route::get('/api/google-reviews', GoogleReviewsController::class)->name('api.google-reviews');

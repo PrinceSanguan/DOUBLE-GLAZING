@@ -10,7 +10,7 @@ const Header = () => {
 					<img src="/images/select-logo.svg" alt="Select logo" className={styles.logo} />
 				</Link>
 				<div className={styles.actions}>
-					<Link href="#contact" className={`${styles.contact} ${styles.contactWhite}`}>Contact Us</Link>
+					<a href="tel:01132578933" className={`${styles.contact} ${styles.contactWhite}`} aria-label="Call Now: 01132578933">Call Now: 01132578933</a>
 					<Link href="/quote" aria-label="Free Quote">
 						<Button className={styles.bookBtn} variant="default">Free Quote</Button>
 					</Link>

@@ -15,7 +15,9 @@ const Cta = () => {
 						<Link href="/quote" aria-label="Free Quote">
 							<Button className={styles.primaryBtn}>Free Quote</Button>
 						</Link>
-						<Button variant="secondary" className={styles.secondaryWhiteBtn}>Contact Us</Button>
+						<a href="tel:01132578933" aria-label="Call Now: 01132578933">
+							<Button variant="secondary" className={styles.secondaryWhiteBtn}>Call Now: 01132578933</Button>
+						</a>
 					</div>
 				</div>
 			</div>

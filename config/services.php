@@ -41,6 +41,11 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
 
+    'google_places' => [
+        'api_key' => env('GOOGLE_MAPS_API_KEY'),
+        'place_id' => env('GOOGLE_PLACE_ID'),
+    ],
+
     'google_apps_script' => [
         'quote_webhook' => env('GOOGLE_APPS_SCRIPT_QUOTE_WEBHOOK'),
         'secret' => env('GOOGLE_APPS_SCRIPT_SECRET'),

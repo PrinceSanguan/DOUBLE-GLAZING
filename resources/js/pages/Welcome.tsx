@@ -5,12 +5,15 @@ import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
 import Hero from '@/components/landing-page/hero';
 import AboutSection from '@/components/landing-page/about-section';
+import GoogleReviews from '@/components/landing-page/google-reviews';
+import TrustedClients from '@/components/landing-page/trusted-clients';
 import WhyUs from '@/components/landing-page/why-us';
 import Product from '@/components/landing-page/product';
 import Testimonial from '@/components/landing-page/testimonial';
 import Faq from '@/components/landing-page/faq';
 import Cta from '@/components/landing-page/cta';
 import FinalCta from '@/components/landing-page/final-cta';
+import LatestVideos from '@/components/landing-page/latest-videos';
 
 export default function Welcome() {
     const [showToast, setShowToast] = React.useState(false);
@@ -60,15 +63,17 @@ export default function Welcome() {
                         </button>
                     </div>
                 )}
-                <Hero />
-                <AboutSection />
-                <WhyUs />
-                <Product />
-                   <Cta />
-                <Testimonial />
-                <Faq />
-             
-                <FinalCta />
+                    <Hero />
+                    <GoogleReviews />
+                    <AboutSection />
+                    <WhyUs />
+                    <Product />
+                    <TrustedClients />
+                     <Cta />
+                     <Testimonial />
+                     <Faq />
+                     <FinalCta />
+                     <LatestVideos />
             </main>
             <Footer />
         </div>
