@@ -3,6 +3,7 @@ import { Head } from '@inertiajs/react';
 import React from 'react';
 import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
+import WhatsAppFloat from '@/components/ui/whatsapp-float';
 import Hero from '@/components/landing-page/hero';
 import AboutSection from '@/components/landing-page/about-section';
 import GoogleReviews from '@/components/landing-page/google-reviews';
@@ -76,6 +77,7 @@ export default function Welcome() {
                      <LatestVideos />
             </main>
             <Footer />
+            <WhatsAppFloat />
         </div>
     );
 }
