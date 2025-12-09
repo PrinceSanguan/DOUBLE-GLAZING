@@ -29,16 +29,6 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/house-extension-we
 			rightHref: 'tel:01132578933',
 		},
 		{
-			title: 'Save On Your Energy Bills',
-			text:
-				'Use our NEW & FREE Energy Saving Calculator to see how much you can save on your energy bills. Plus, our latest Product Visualiser lets you see our most popular window styles up close so you can make the right choice to start saving today.',
-			image: '/images/Hero/dsc9477-1-663x1024.jpg',
-			leftLabel: 'Get Free Quote',
-			leftHref: '/quote',
-			rightLabel: 'Call Now: 01132578933',
-			rightHref: 'tel:01132578933',
-		},
-		{
 			title: 'Double Glazing Specialists In Leeds',
 			text:
 				'Local family-run business for high security, A-rated windows and doors in uPVC, timber and aluminium. Proudly serving Leeds, Pudsey, Horsforth, Cookridge and across West & North Yorkshire. Request your FREE no-obligation online quote 24/7. Discuss your project today with our home improvement experts.',

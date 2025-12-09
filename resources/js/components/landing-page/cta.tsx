@@ -8,8 +8,8 @@ const Cta = () => {
 			<div className={styles.ctaContainer}>
 				<div className={styles.ctaFrame}>
 					<div>
-						<h3 className={styles.ctaTitle}>Ready to find your next home?</h3>
-						<p className={styles.ctaText}>Schedule a private viewing or speak with our agents.</p>
+						<h3 className={styles.ctaTitle}>Ready to upgrade your home?</h3>
+						<p className={styles.ctaText}>Get your free quote today or speak with our friendly team.</p>
 					</div>
 					<div className={styles.ctaActions}>
 						<Link href="/quote" aria-label="Free Quote">
