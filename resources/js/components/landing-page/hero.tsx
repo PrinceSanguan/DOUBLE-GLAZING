@@ -5,7 +5,7 @@ type HeroProps = {
 	imageUrl?: string;
 };
 
-const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/house-extension-wetherby-1.jpg' }) => {
+const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-extender (6).webp' }) => {
 	// Two rotating promo cards (Composite Doors + Conservatories)
 	const items = [
 		{
@@ -51,7 +51,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/house-extension-we
 				<div className={styles.heroFrame}>
 					<div
 						className={styles.heroImage}
-						style={{ backgroundImage: `url(${imageUrl})` }}
+						style={{ backgroundImage: `url("${imageUrl}")` }}
 						aria-label="City skyline"
 					/>
 					<div className={styles.heroContent}>
