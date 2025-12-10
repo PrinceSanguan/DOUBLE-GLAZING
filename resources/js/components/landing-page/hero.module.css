@@ -133,27 +133,74 @@
 }
 
 @media (min-width: 1025px) {
-  .overlayCard { width: 44rem !important; max-width: 44rem !important; }
+  /* Enforce desktop/laptop layout: left text bottom-left, info card bottom-right */
+  .heroContent { display: block; }
+  .textBlock {
+    position: absolute;
+    left: var(--section-padding);
+    right: auto;
+    bottom: var(--section-padding);
+    max-width: min(72ch, 90vw);
+  }
+  .infoCard {
+    position: absolute;
+    right: var(--section-padding);
+    bottom: var(--section-padding);
+    width: clamp(26rem, 42vw, 36rem);
+    max-width: 36rem;
+  }
+}
+
+/* Laptop / Tablet landscape: keep layout readable between 641px and 1024px */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .heroContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: var(--section-padding);
+  }
+  .textBlock {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    max-width: 80ch;
+  }
+  .infoCard {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: none;
+  }
 }
 
 /* Small screens: keep overlay within the same side insets */
 @media (max-width: 640px) {
+  .heroContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1rem;
+    padding: var(--section-padding);
+  }
   .textBlock {
-    /* Lift text above the full-width overlay on small screens */
-    bottom: calc(var(--section-padding) + 11rem);
-    left: var(--section-padding);
-    right: var(--section-padding);
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
     max-width: none;
   }
-  .overlayCard {
-    left: var(--section-padding);
-    right: var(--section-padding);
-    bottom: var(--section-padding);
-    width: auto !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    grid-template-rows: auto 1fr auto;
+  .subtitle { max-width: none; }
+  .cardAction { margin-top: 0.75rem; }
+  .infoCard {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    max-width: none;
   }
-  .cardImage { height: 7rem; }
-  .subtitle { max-width: 52ch; }
+  .cardBody { padding: clamp(12px, 4vw, 16px); }
 }
