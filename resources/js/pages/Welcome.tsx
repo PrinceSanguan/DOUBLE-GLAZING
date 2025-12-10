@@ -5,6 +5,7 @@ import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
 import WhatsAppFloat from '@/components/ui/whatsapp-float';
 import Hero from '@/components/landing-page/hero';
+import Features from '@/components/landing-page/features';
 import AboutSection from '@/components/landing-page/about-section';
 import GoogleReviews from '@/components/landing-page/google-reviews';
 import TrustedClients from '@/components/landing-page/trusted-clients';
@@ -65,6 +66,7 @@ export default function Welcome() {
                     </div>
                 )}
                     <Hero />
+                    <Features />
                     <GoogleReviews />
                     <AboutSection />
                     <WhyUs />
