@@ -4,6 +4,7 @@
 .section { padding: clamp(16px, 4vw, 32px) 0; }
 .container { max-width: 1860px; width: 100%; margin: 0 auto; }
 .frame { background: #fff; color: #111; border-radius: 1rem; padding: clamp(16px, 3vw, 32px); }
+.embed { width: 100%; }
 .header { margin-bottom: clamp(12px, 3vw, 20px); }
 .title { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 800; letter-spacing: -0.01em; }
 .titleLight { font-weight: 300; opacity: 0.9; }
