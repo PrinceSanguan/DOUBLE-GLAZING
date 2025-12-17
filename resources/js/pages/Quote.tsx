@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { router } from '@inertiajs/react';
 import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
@@ -16,6 +16,29 @@ const Quote: React.FC = () => {
   });
 
   const [step, setStep] = useState(0);
+
+  // Prefill from query params and skip early steps if provided
+  useEffect(() => {
+    try {
+      const qs = new URLSearchParams(window.location.search);
+      const qInterest = (qs.get('interest') || '').trim();
+      const rawWhen = (qs.get('when') || '').trim();
+      const normalizeWhen = (w: string) => {
+        const v = w.toLowerCase();
+        if (v === 'immediately' || v === 'asap') return 'ASAP';
+        if (v === '1-3 months' || v === 'within 1 month') return 'Within 1 Month';
+        if (v === '3-6 months' || v === '1 month +' || v === '1 month+') return '1 Month +';
+        if (v === 'just researching' || v === 'unsure') return 'Unsure';
+        return w;
+      };
+      const qWhen = rawWhen ? normalizeWhen(rawWhen) : '';
+      if (qInterest || qWhen) {
+        setForm(prev => ({ ...prev, interest: qInterest || prev.interest, when: qWhen || prev.when }));
+      }
+      if (qInterest && qWhen) setStep(2);
+      else if (qInterest) setStep(1);
+    } catch {}
+  }, []);
 
   const update = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

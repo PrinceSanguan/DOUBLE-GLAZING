@@ -13,6 +13,37 @@
   box-sizing: border-box;
   z-index: 2;
 }
+/* Quick quote card (top-right) */
+.quoteCard {
+  position: absolute;
+  right: var(--section-padding);
+  top: var(--section-padding);
+  width: clamp(26rem, 42vw, 36rem);
+  max-width: 36rem;
+  border-radius: 1rem;
+  background: rgba(20,20,24,0.78);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  overflow: hidden;
+  color: #f0f0f0;
+  box-sizing: border-box;
+  z-index: 2;
+}
+/* Simple form styles */
+.form { display: grid; gap: 0.75rem; padding: 1rem; }
+.formGroup { display: grid; gap: 0.35rem; }
+.label { font-size: 0.9rem; color: #ffffff; opacity: 0.9; }
+.select {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #ffffff;
+  color: #101014;
+  padding: 0.5rem 0.6rem;
+  outline: none;
+}
+.select:focus { border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(84,132,255,0.25); }
+.select option { color: #101014; background: #ffffff; }
 /* hero.module.css */
 
 .heroSection {
@@ -132,6 +163,29 @@
   border-color: var(--brand-blue);
 }
 
+/* Right-side stacked cards wrapper */
+.rightCards {
+  position: absolute;
+  right: var(--section-padding);
+  bottom: var(--section-padding);
+  width: clamp(26rem, 42vw, 36rem);
+  max-width: 36rem;
+  display: grid;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+/* Inside the stack, cards become relative blocks */
+.rightCards .quoteCard,
+.rightCards .infoCard {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  top: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
 @media (min-width: 1025px) {
   /* Enforce desktop/laptop layout: left text bottom-left, info card bottom-right */
   .heroContent { display: block; }
@@ -142,13 +196,8 @@
     bottom: var(--section-padding);
     max-width: min(72ch, 90vw);
   }
-  .infoCard {
-    position: absolute;
-    right: var(--section-padding);
-    bottom: var(--section-padding);
-    width: clamp(26rem, 42vw, 36rem);
-    max-width: 36rem;
-  }
+  /* Wrapper controls placement on desktop; cards are block items inside */
+  .rightCards { position: absolute; right: var(--section-padding); bottom: var(--section-padding); width: clamp(26rem, 42vw, 36rem); max-width: 36rem; }
 }
 
 /* Laptop / Tablet landscape: keep layout readable between 641px and 1024px */
@@ -166,18 +215,17 @@
     bottom: auto;
     max-width: 80ch;
   }
-  .infoCard {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    max-width: none;
-  }
+  .rightCards { position: relative; right: auto; bottom: auto; width: 100%; max-width: none; margin-top: 0.5rem; }
 }
 
 /* Small screens: keep overlay within the same side insets */
 @media (max-width: 640px) {
+  /* Allow content to grow and be visible on small screens */
+  .heroFrame { height: auto; min-height: 0; overflow: visible; }
+  .heroImage { position: absolute; inset: 0; }
   .heroContent {
+    position: relative;
+    inset: auto;
     display: grid;
     grid-template-columns: 1fr;
     align-items: start;
@@ -191,16 +239,13 @@
     top: auto;
     bottom: auto;
     max-width: none;
+    margin-bottom: 0.5rem;
   }
   .subtitle { max-width: none; }
   .cardAction { margin-top: 0.75rem; }
-  .infoCard {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    width: 100%;
-    max-width: none;
-  }
+  .rightCards { position: relative; right: auto; bottom: auto; left: auto; width: 100%; max-width: none; display: grid; gap: 0.75rem; }
   .cardBody { padding: clamp(12px, 4vw, 16px); }
+  /* Improve select readability and touch comfort */
+  .select { font-size: 16px; }
+  .quoteCard .cardAction { width: 100%; padding: 0.6rem 0.8rem; }
 }
