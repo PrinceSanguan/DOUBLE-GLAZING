@@ -32,9 +32,13 @@ const Quote: React.FC = () => {
         return w;
       };
       const qWhen = rawWhen ? normalizeWhen(rawWhen) : '';
-      if (qInterest || qWhen) {
-        setForm(prev => ({ ...prev, interest: qInterest || prev.interest, when: qWhen || prev.when }));
-      }
+      const next: any = {};
+      if (qInterest) next.interest = qInterest;
+      if (qWhen) next.when = qWhen;
+      const qp = (k: string) => (qs.get(k) || '').trim();
+      const qpMap = ['postcode','address','name','number','email'] as const;
+      qpMap.forEach((k) => { const v = qp(k); if (v) next[k] = v; });
+      if (Object.keys(next).length) setForm(prev => ({ ...prev, ...next }));
       if (qInterest && qWhen) setStep(2);
       else if (qInterest) setStep(1);
     } catch {}

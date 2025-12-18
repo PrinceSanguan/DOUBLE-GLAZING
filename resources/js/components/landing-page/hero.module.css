@@ -33,6 +33,14 @@
 .form { display: grid; gap: 0.75rem; padding: 1rem; }
 .formGroup { display: grid; gap: 0.35rem; }
 .label { font-size: 0.9rem; color: #ffffff; opacity: 0.9; }
+.formHeader { display: grid; gap: 0.25rem; margin-bottom: 0.25rem; }
+.formTitle { margin: 0; font-size: 1.1rem; font-weight: 700; color: #fff; }
+.formSubtitle { margin: 0; font-size: 0.9rem; color: #e6e6e6; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; margin-left: 6px; border-radius: 999px; font-weight: 600; background: #eef6fa; color: #0a6b90; border: 1px solid #cfe4ef; }
+.input, .textarea { width: 100%; border-radius: 0.5rem; border: 1px solid rgba(0,0,0,0.15); background: #ffffff; color: #101014; padding: 0.5rem 0.6rem; outline: none; }
+.textarea { resize: vertical; }
+.input:focus, .textarea:focus { border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(84,132,255,0.25); }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 .select {
   width: 100%;
   border-radius: 0.5rem;
@@ -118,7 +126,7 @@
 .textBlock {
   position: absolute;
   left: var(--section-padding);
-  bottom: var(--section-padding);
+  top: var(--section-padding);
   right: auto;
   max-width: min(72ch, 90vw);
 }
@@ -141,6 +149,23 @@
 .cardMeta { font-size: 0.8rem; opacity: 0.75; }
 .cardAction { display: inline-flex; align-items: center; justify-content: center; background: var(--brand-blue); color: #fff; border: none; border-radius: 0.5rem; padding: 0.4rem 0.6rem; transition: background-color 160ms ease; }
 .cardAction:hover { background: var(--brand-blue-dark); }
+
+/* Info card lower-left */
+.infoCardLeft {
+  position: absolute;
+  left: var(--section-padding);
+  bottom: var(--section-padding);
+  width: clamp(26rem, 42vw, 36rem);
+  max-width: 36rem;
+  border-radius: 1rem;
+  background: rgba(20,20,24,0.75);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  overflow: hidden;
+  color: #e6e6e6;
+  box-sizing: border-box;
+  z-index: 2;
+}
 
 /* Card navigation (dots) */
 .cardNav {
@@ -193,7 +218,7 @@
     position: absolute;
     left: var(--section-padding);
     right: auto;
-    bottom: var(--section-padding);
+    top: var(--section-padding);
     max-width: min(72ch, 90vw);
   }
   /* Wrapper controls placement on desktop; cards are block items inside */
@@ -212,9 +237,10 @@
     position: relative;
     left: auto;
     right: auto;
-    bottom: auto;
+    top: auto;
     max-width: 80ch;
   }
+  .infoCardLeft { position: relative; left: auto; bottom: auto; width: 100%; max-width: none; }
   .rightCards { position: relative; right: auto; bottom: auto; width: 100%; max-width: none; margin-top: 0.5rem; }
 }
 
@@ -244,6 +270,7 @@
   .subtitle { max-width: none; }
   .cardAction { margin-top: 0.75rem; }
   .rightCards { position: relative; right: auto; bottom: auto; left: auto; width: 100%; max-width: none; display: grid; gap: 0.75rem; }
+  .infoCardLeft { position: relative; left: auto; bottom: auto; width: 100%; max-width: none; }
   .cardBody { padding: clamp(12px, 4vw, 16px); }
   /* Improve select readability and touch comfort */
   .select { font-size: 16px; }
