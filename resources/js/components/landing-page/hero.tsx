@@ -12,13 +12,19 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 	const [address, setAddress] = React.useState('');
 	const [name, setName] = React.useState('');
 	const [number, setNumber] = React.useState('');
+	const numberRef = React.useRef<HTMLInputElement | null>(null);
 	const [email, setEmail] = React.useState('');
 	const [submitting, setSubmitting] = React.useState(false);
-	const [submitted, setSubmitted] = React.useState(false);
 	const [submitError, setSubmitError] = React.useState<string | null>(null);
+	const [showModal, setShowModal] = React.useState(false);
 
 	async function submitQuickQuote(e: React.FormEvent) {
 		e.preventDefault();
+		if (!number.trim()) {
+			setSubmitError('Phone number is required');
+			numberRef.current?.focus();
+			return;
+		}
 		setSubmitError(null);
 		setSubmitting(true);
 		try {
@@ -35,7 +41,9 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 				const msg = (data && (data.message || data.error)) || 'Submission failed';
 				throw new Error(msg);
 			}
-			setSubmitted(true);
+			// Show success modal and update URL without navigation
+			try { window.history.pushState({}, '', '/leadsubmitted'); } catch {}
+			setShowModal(true);
 		} catch (err: any) {
 			setSubmitError(String(err?.message || err));
 		} finally {
@@ -116,7 +124,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 										</div>
 										<div className={styles.formGroup}>
 											<label htmlFor="qq-number" className={styles.label}>Number</label>
-											<input id="qq-number" className={styles.input} value={number} onChange={(e) => setNumber(e.target.value)} />
+											<input id="qq-number" ref={numberRef} className={styles.input} value={number} onChange={(e) => setNumber(e.target.value)} inputMode="tel" aria-required="true" aria-invalid={!!submitError && !number.trim() ? true : undefined} />
 										</div>
 									</div>
 									<div className={styles.formGroup}> 
@@ -124,13 +132,9 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 										<input id="qq-email" className={styles.input} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 									</div>
 									{submitError && <div role="alert" style={{ color: '#ffd1d1' }}>{submitError}</div>}
-									{submitted ? (
-										<div role="status" aria-live="polite" style={{ color: '#d4f6d4', fontWeight: 600 }}>Thanks! We received your request.</div>
-									) : (
-										<button type="submit" className={styles.cardAction} aria-label="Submit" disabled={submitting}>
-											{submitting ? 'Submitting…' : 'Submit'}
-										</button>
-									)}
+									<button type="submit" className={styles.cardAction} aria-label="Submit" disabled={submitting}>
+										{submitting ? 'Submitting…' : 'Submit'}
+									</button>
 								</form>
 							</aside>
 						</div>
@@ -148,6 +152,24 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 							</div>
 						</aside>
 
+					{/* Success Modal */}
+					{showModal && (
+						<div className={styles.modalOverlay} role="dialog" aria-modal="true" aria-labelledby="heroQuoteModalTitle">
+							<div className={styles.modal}>
+								<h2 id="heroQuoteModalTitle" className={styles.modalTitle}>Confirm Submission</h2>
+								<p className={styles.modalText}>We received your {interest} quote details. Proceed back to the homepage?</p>
+								<div className={styles.modalActions}>
+									<button
+										type="button"
+										className={styles.btnPrimary}
+										onClick={() => { try { localStorage.setItem('quoteSuccess', '1'); } catch {} window.location.assign('/'); }}
+									>
+										Confirm
+									</button>
+								</div>
+							</div>
+						</div>
+					)}
 					</div>
 				</div>
 			</div>

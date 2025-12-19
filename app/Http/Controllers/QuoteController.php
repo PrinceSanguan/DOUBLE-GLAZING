@@ -18,7 +18,7 @@ class QuoteController extends Controller
             'postcode' => 'nullable|string',
             'address' => 'nullable|string',
             'name' => 'nullable|string',
-            'number' => 'nullable|string',
+            'number' => 'required|string',
             'email' => 'nullable|email',
         ]);
 

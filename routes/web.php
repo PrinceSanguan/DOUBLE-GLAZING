@@ -21,6 +21,16 @@ Route::get('/quote', function () {
   return Inertia::render('Quote');
 })->name('quote');
 
+// Lead thank-you page (fallback target if no external URL configured)
+Route::get('/thank-you', function () {
+  return Inertia::render('ThankYou');
+})->name('thank-you');
+
+// Lead submitted URL (used when we update the URL without navigating)
+Route::get('/leadsubmitted', function () {
+  return Inertia::render('ThankYou');
+})->name('lead-submitted');
+
 // Quote submission handler
 Route::post('/quote', [QuoteController::class, 'store'])
   ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])

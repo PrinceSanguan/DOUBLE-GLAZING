@@ -276,3 +276,13 @@
   .select { font-size: 16px; }
   .quoteCard .cardAction { width: 100%; padding: 0.6rem 0.8rem; }
 }
+
+  /* Modal styles for hero success dialog */
+  .modalOverlay { position: fixed; inset: 0; background: rgba(16,16,20,0.45); backdrop-filter: saturate(120%) blur(4px); display: grid; place-items: center; z-index: 1000; }
+  .modal { width: min(520px, 92vw); background: #ffffff; border-radius: 16px; box-shadow: 0 12px 28px rgba(16,16,20,0.25); border: 1px solid #e6e7ea; padding: 20px; }
+  .modalTitle { margin: 0 0 8px 0; font-size: 1.25rem; font-weight: 600; color: #101014; }
+  .modalText { margin: 0 0 16px 0; color: #3a3f4b; }
+  .modalActions { display: flex; justify-content: flex-end; gap: 10px; }
+  .btnPrimary { background: linear-gradient(180deg, #0a6b90 0%, #095e7f 100%); color: #ffffff; border: 1px solid #0a6286; box-shadow: 0 4px 10px rgba(10, 107, 144, 0.25); border-radius: 10px; padding: 10px 16px; }
+  .btnPrimary:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(10, 107, 144, 0.35); }
+  .btnPrimary:active { transform: translateY(0); box-shadow: 0 4px 10px rgba(10, 107, 144, 0.25); }

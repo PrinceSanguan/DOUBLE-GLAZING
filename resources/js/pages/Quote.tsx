@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { router } from '@inertiajs/react';
 import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
@@ -16,6 +16,8 @@ const Quote: React.FC = () => {
   });
 
   const [step, setStep] = useState(0);
+  const [error, setError] = useState<string | null>(null);
+  const numberRef = useRef<HTMLInputElement | null>(null);
 
   // Prefill from query params and skip early steps if provided
   useEffect(() => {
@@ -55,6 +57,12 @@ const Quote: React.FC = () => {
       alert('Please select interest and timeframe before submitting.');
       return;
     }
+    if (!form.number.trim()) {
+      setError('Phone number is required');
+      setStep(2);
+      numberRef.current?.focus();
+      return;
+    }
     try {
       const res = await fetch('/quote', {
         method: 'POST',
@@ -66,6 +74,7 @@ const Quote: React.FC = () => {
         const msg = (data && (data.message || data.error)) || 'Submission failed';
         throw new Error(msg);
       }
+      try { window.history.pushState({}, '', '/leadsubmitted'); } catch {}
       setShowModal(true);
     } catch (err) {
       alert(String(err));
@@ -174,7 +183,19 @@ const Quote: React.FC = () => {
               </label>
               <label className={styles.label}>
                 <span>Number</span>
-                <input name="number" value={form.number} onChange={update} className={styles.input} />
+                <input
+                  name="number"
+                  value={form.number}
+                  onChange={(e) => { setError(null); update(e); }}
+                  className={styles.input}
+                  ref={numberRef}
+                  inputMode="tel"
+                  aria-required="true"
+                  aria-invalid={error ? true : undefined}
+                />
+                {error && (
+                  <span role="alert" style={{ color: '#c62828', fontSize: '0.9rem' }}>{error}</span>
+                )}
               </label>
               <label className={styles.label}>
                 <span>Email</span>
