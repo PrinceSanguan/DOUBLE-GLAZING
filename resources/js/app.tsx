@@ -12,7 +12,7 @@ const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 document.documentElement.classList.remove('dark');
 
 createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
+    title: (title) => title ? `${title}` : appName,
     resolve: (name: string) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
     setup({ el, App, props }: { el: HTMLElement; App: any; props: any }) {
         const root = createRoot(el);
