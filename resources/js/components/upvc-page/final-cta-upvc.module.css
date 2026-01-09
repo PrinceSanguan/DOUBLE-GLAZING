@@ -1,0 +1,18 @@
+/* final-cta.module.css */
+
+.finalCtaSection { --section-padding: clamp(16px, 3vw, 32px); padding: var(--section-padding); box-sizing: border-box; margin-top: clamp(24px, 4vw, 48px); scroll-margin-top: calc(var(--header-height) + 8px); }
+.finalCtaContainer { max-width: 1860px; width: 100%; margin: 0 auto; }
+.finalCtaFrame { background: #101014; color: #e6e6e6; border-radius: 1.25rem; padding: clamp(20px, 5vw, 56px); text-align: center; display: grid; gap: 0.75rem; font-family: 'Instrument Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+.title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.01em; color: #e6e6e6; }
+.titleLight { font-weight: 300; }
+.titleItalic { font-style: italic; }
+.finalCtaText { color: #c7c7c7; font-size: clamp(1rem, 2.2vw, 1.125rem); }
+.finalCtaActions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 0.25rem; }
+
+.primaryBtn { background: var(--brand-blue) !important; color: #fff !important; border: 1px solid var(--brand-blue) !important; }
+.primaryBtn:hover { background: var(--brand-blue-dark) !important; border-color: var(--brand-blue-dark) !important; }
+.secondaryBtn { background: transparent !important; color: var(--brand-blue) !important; border: 1px solid var(--brand-blue) !important; }
+.secondaryBtn:hover { background: rgba(16, 16, 20, 0.08) !important; }
+.secondaryWhiteBtn { background: #ffffff !important; color: #101014 !important; border: 1px solid #ffffff !important; }
+.secondaryWhiteBtn:hover { background: #f2f2f2 !important; }
+.titleItalic { color: var(--brand-blue); }

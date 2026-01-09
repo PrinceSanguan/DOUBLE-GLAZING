@@ -1,0 +1,176 @@
+import styles from './hero-upvc.module.css';
+import React from 'react';
+import { Check, Phone } from 'lucide-react';
+
+type HeroProps = {
+	imageUrl?: string;
+};
+
+const HeroUpvc: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-extender (6).webp' }) => {
+	const [interest, setInterest] = React.useState('uPVC Windows & Doors');
+	const when = 'Immediately';
+	const [postcode, setPostcode] = React.useState('');
+	const [address, setAddress] = React.useState('');
+	const [name, setName] = React.useState('');
+	const [number, setNumber] = React.useState('');
+	const numberRef = React.useRef<HTMLInputElement | null>(null);
+	const [email, setEmail] = React.useState('');
+	const [submitting, setSubmitting] = React.useState(false);
+	const [submitError, setSubmitError] = React.useState<string | null>(null);
+	const [showModal, setShowModal] = React.useState(false);
+
+	async function submitQuickQuote(e: React.FormEvent) {
+		e.preventDefault();
+		if (!number.trim()) {
+			setSubmitError('Phone number is required');
+			numberRef.current?.focus();
+			return;
+		}
+		setSubmitError(null);
+		setSubmitting(true);
+		try {
+			const res = await fetch('/quote', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'X-Requested-With': 'XMLHttpRequest',
+				},
+				body: JSON.stringify({ interest, when, postcode, address, name, number, email }),
+			});
+			const data = await res.json().catch(() => ({} as any));
+			if (!res.ok) {
+				const msg = (data && (data.message || data.error)) || 'Submission failed';
+				throw new Error(msg);
+			}
+			// Show success modal and update URL without navigation
+			try { window.history.pushState({}, '', '/leadsubmitted'); } catch {}
+			setShowModal(true);
+		} catch (err: any) {
+			setSubmitError(String(err?.message || err));
+		} finally {
+			setSubmitting(false);
+		}
+	}
+	return (
+		<section className={styles.heroSection}>
+			<div className={styles.heroContainer}>
+				<div className={styles.heroFrame}>
+					<div
+						className={styles.heroImage}
+						style={{ backgroundImage: `url("${imageUrl}")` }}
+						aria-label="City skyline"
+					/>
+					<div className={styles.heroContent}>
+						<div className={styles.leftPanel}>
+							<h1 className={styles.title}>
+								Exceptional uPVC Windows in Leeds
+								<span className={styles.titleAccent}> Engineered for Warmth, Security & Lasting Value</span>
+							</h1>
+							<p className={styles.subtitle}>
+								High-performance uPVC window replacement, precision-crafted in the UK and expertly installed by Which?-approved Leeds specialists for homeowners who expect more than "standard double glazing."
+							</p>
+							<div className={styles.trustRow} aria-label="Trust indicators">
+							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> Which? Trusted Trader Approved</span>
+							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> FENSA Registered & Fully Accredited</span>
+							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> 10-Year Insurance-Backed Guarantee</span>
+							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> Serving Leeds & West Yorkshire Homes</span>
+							</div>
+							<div className={styles.ctaRow}>
+								<a href="/quote" className={styles.primaryCta} aria-label="Request your free uPVC windows quote" title="Request your free uPVC windows quote">
+									Request Your Free uPVC Windows Quote
+									<small className={styles.ctaSmall}>Clear pricing • No obligation • Personalised to your home</small>
+								</a>
+							</div>
+							<div className={styles.secondaryCta}>
+								<p className={styles.secondaryLabel}>Prefer a conversation?</p>
+								<a href="tel:01132578933" className={styles.phoneLink}>
+								<Phone size={16} strokeWidth={2} /> Speak to a Leeds glazing specialist: <strong>0113 257 8933</strong>
+								</a>
+							</div>
+							<div className={styles.benefitsCard} aria-label="Key benefits">
+								<div className={styles.cardBody}>
+									<ul className={styles.cardList}>
+										<li>Superior thermal performance to help reduce heat loss and energy bills</li>
+										<li>Advanced multi-point security systems for complete peace of mind</li>
+										<li>Made-to-measure craftsmanship to complement modern & period homes</li>
+										<li>Low-maintenance, colour-stable uPVC built to perform for decades</li>
+										<li>Professional, tidy installation with minimal disruption to your home</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<aside className={styles.quoteCard} aria-label="Quick quote">
+							<form className={styles.form} onSubmit={submitQuickQuote}>
+								<div className={styles.formHeader}>
+									<h3 className={styles.formTitle}>Request Your Personalised uPVC Windows Quote</h3>
+									<p className={styles.formSubtitle}>Modern UPVC Window for Leeds homeowners who value warmth, security, and long-term quality expertly installed by trusted local specialists.</p>
+								</div>
+								<div className={styles.formGroup}>
+									<label htmlFor="qq-interest" className={styles.label}>I\'m interested in</label>
+									<select
+										id="qq-interest"
+										className={styles.select}
+										value={interest}
+										onChange={(e) => setInterest(e.target.value)}
+										aria-label="Select product interest"
+									>
+										<option>Composite Doors</option>
+										<option>uPVC Windows & Doors</option>
+									</select>
+								</div>
+								<div className={styles.formGroup}>
+									<label htmlFor="qq-postcode" className={styles.label}>Postcode</label>
+									<input id="qq-postcode" className={styles.input} value={postcode} onChange={(e) => setPostcode(e.target.value)} placeholder="e.g., LS1 1AA" />
+								</div>
+								<div className={styles.formGroup}>
+									<label htmlFor="qq-address" className={styles.label}>Address</label>
+									<textarea id="qq-address" className={styles.textarea} rows={3} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street, City" />
+								</div>
+								<div className={styles.formRow}>
+									<div className={styles.formGroup}>
+										<label htmlFor="qq-name" className={styles.label}>Name</label>
+										<input id="qq-name" className={styles.input} value={name} onChange={(e) => setName(e.target.value)} />
+									</div>
+									<div className={styles.formGroup}>
+										<label htmlFor="qq-number" className={styles.label}>Number</label>
+										<input id="qq-number" ref={numberRef} className={styles.input} value={number} onChange={(e) => setNumber(e.target.value)} inputMode="tel" aria-required="true" aria-invalid={!!submitError && !number.trim() ? true : undefined} />
+									</div>
+								</div>
+								<div className={styles.formGroup}>
+									<label htmlFor="qq-email" className={styles.label}>Email</label>
+									<input id="qq-email" className={styles.input} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+								</div>
+								{submitError && <div role="alert" style={{ color: '#ffd1d1' }}>{submitError}</div>}
+								<button type="submit" className={styles.cardAction} aria-label="Submit" disabled={submitting}>
+									{submitting ? 'Submitting…' : 'Submit'}
+								</button>
+							</form>
+						</aside>
+
+						{/* Success Modal */}
+						{showModal && (
+							<div className={styles.modalOverlay} role="dialog" aria-modal="true" aria-labelledby="heroQuoteModalTitle">
+								<div className={styles.modal}>
+									<h2 id="heroQuoteModalTitle" className={styles.modalTitle}>Confirm Submission</h2>
+									<p className={styles.modalText}>We received your {interest} quote details. Proceed back to the homepage?</p>
+									<div className={styles.modalActions}>
+										<button
+											type="button"
+											className={styles.btnPrimary}
+											onClick={() => { try { localStorage.setItem('quoteSuccess', '1'); } catch {} window.location.assign('/'); }}
+										>
+											Confirm
+										</button>
+									</div>
+								</div>
+							</div>
+						)}
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+};
+
+export default HeroUpvc;

@@ -34,7 +34,13 @@
 .formGroup { display: grid; gap: 0.35rem; }
 .label { font-size: 0.9rem; color: #ffffff; opacity: 0.9; }
 .formHeader { display: grid; gap: 0.25rem; margin-bottom: 0.25rem; }
-.formTitle { margin: 0; font-size: 1.1rem; font-weight: 700; color: #fff; }
+.formTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(84,132,255,0.55), 0 0 28px rgba(84,132,255,0.28);
+}
 .formSubtitle { margin: 0; font-size: 0.9rem; color: #e6e6e6; }
 .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; margin-left: 6px; border-radius: 999px; font-weight: 600; background: #eef6fa; color: #0a6b90; border: 1px solid #cfe4ef; }
 .input, .textarea { width: 100%; border-radius: 0.5rem; border: 1px solid rgba(0,0,0,0.15); background: #ffffff; color: #101014; padding: 0.5rem 0.6rem; outline: none; }
@@ -209,6 +215,38 @@
   top: auto;
   width: 100%;
   max-width: 100%;
+}
+
+/* Make the form feel like it's "floating" and glowing */
+.rightCards .quoteCard {
+  border: 1px solid rgba(84,132,255,0.28);
+  box-shadow:
+    0 18px 46px rgba(0,0,0,0.44),
+    0 0 0 1px rgba(84,132,255,0.12),
+    0 0 34px rgba(84,132,255,0.18);
+  transform: translate3d(0, 0, 0);
+  will-change: transform, box-shadow;
+  animation: quoteFloat 3.2s ease-in-out infinite;
+}
+
+.rightCards .quoteCard:focus-within {
+  box-shadow:
+    0 20px 52px rgba(0,0,0,0.46),
+    0 0 0 1px rgba(84,132,255,0.18),
+    0 0 44px rgba(84,132,255,0.28);
+}
+
+@keyframes quoteFloat {
+  0%   { transform: translate3d(0, 0, 0); }
+  50%  { transform: translate3d(0, -10px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rightCards .quoteCard {
+    animation: none;
+    will-change: auto;
+  }
 }
 
 @media (min-width: 1025px) {

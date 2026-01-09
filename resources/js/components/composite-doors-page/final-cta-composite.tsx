@@ -1,17 +1,17 @@
-import styles from './final-cta.module.css';
+import styles from './final-cta-composite.module.css';
 import { Button } from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
 
-const FinalCta = () => {
+const FinalCtaComposite = () => {
 	return (
 		<section className={styles.finalCtaSection}>
 			<div className={styles.finalCtaContainer}>
 				<div className={styles.finalCtaFrame}>
 					<h3 className={styles.title}>
-						<span className={styles.titleLight}>Ready to Save Money</span>
-						<span className={styles.titleItalic}> and Stay Warmer This Winter?</span>
+						<span className={styles.titleLight}>Ready to Feel Safer</span>
+						<span className={styles.titleItalic}> Every Time You Close Your Door?</span>
 					</h3>
-					<p className={styles.finalCtaText}>Join hundreds of Leeds homeowners who've already made the switch. Get your free, no-obligation quote in under 60 seconds.</p>
+					<p className={styles.finalCtaText}>Upgrade your home with a premium composite door designed for security, insulation, and lasting style professionally installed by trusted local experts in Leeds.</p>
 					<div className={styles.finalCtaActions}>
 						<Link href="/quote" aria-label="Free Quote">
 							<Button className={styles.primaryBtn}>Free Quote</Button>
@@ -26,4 +26,4 @@ const FinalCta = () => {
 	);
 };
 
-export default FinalCta;
+export default FinalCtaComposite;

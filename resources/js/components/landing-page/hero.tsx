@@ -6,8 +6,8 @@ type HeroProps = {
 };
 
 const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-extender (6).webp' }) => {
-	const [interest, setInterest] = React.useState('Windows');
-	const [when, setWhen] = React.useState('Immediately');
+	const [interest, setInterest] = React.useState('Composite Doors');
+	const when = 'Immediately';
 	const [postcode, setPostcode] = React.useState('');
 	const [address, setAddress] = React.useState('');
 	const [name, setName] = React.useState('');
@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 								<span className={styles.titleLight}>Select</span>
 								<span className={styles.titleItalic}>Products</span>
 							</h2>
-							<h1 className={styles.subtitle}>Leeds double glazing specialists for windows, doors, conservatories & extensions. For homeowners who refuse to compromise.</h1>
+							<h1 className={styles.subtitle}>A-rated double glazing makes your Leeds home warmer, quieter, and more secure installed by Which? Approved local experts you can trust.</h1>
 							<a href="/quote" className={styles.cardAction} aria-label="Get a free quote" title="Get a free quote">Get a Free Quote</a>
 						</div>
 
@@ -75,8 +75,8 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 							<aside className={styles.quoteCard} aria-label="Quick quote">
 								<form className={styles.form} onSubmit={submitQuickQuote}>
 									<div className={styles.formHeader}>
-										<h3 className={styles.formTitle}>Request a Quote</h3>
-										<p className={styles.formSubtitle}>Answer a few questions so we can help. <span className={styles.pill} aria-live="polite">Selected: {interest} Quote</span></p>
+											<h3 className={styles.formTitle}>Get Your Personalised Double Glazing Quote</h3>
+											<p className={styles.formSubtitle}>Designed for Leeds homeowners who want warmer homes, lower energy bills, and expert installation.</p>
 									</div>
 									<div className={styles.formGroup}>
 										<label htmlFor="qq-interest" className={styles.label}>I\'m interested in</label>
@@ -87,26 +87,8 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 											onChange={(e) => setInterest(e.target.value)}
 											aria-label="Select product interest"
 										>
-											<option>Windows</option>
-											<option>Doors</option>
-											<option>Conservatories</option>
-											<option>Extensions</option>
-											<option>Other</option>
-										</select>
-									</div>
-									<div className={styles.formGroup}>
-										<label htmlFor="qq-when" className={styles.label}>When do you plan to start?</label>
-										<select
-											id="qq-when"
-											className={styles.select}
-											value={when}
-											onChange={(e) => setWhen(e.target.value)}
-											aria-label="Select project timeline"
-										>
-											<option>Immediately</option>
-											<option>1-3 months</option>
-											<option>3-6 months</option>
-											<option>Just researching</option>
+											<option>Composite Doors</option>
+											<option>uPVC Windows & Doors</option>
 										</select>
 									</div>
 									<div className={styles.formGroup}> 
@@ -142,7 +124,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 						{/* Info card on lower-left */}
 						<aside className={styles.infoCardLeft} aria-label="Installations overview">
 							<div className={styles.cardBody}>
-								<p className={styles.cardText}>Transparent pricing and premium, long-lasting products. Select Products is the Which?-approved local team trusted across Leeds for exceptional installations.</p>
+								<p className={styles.cardText}>Cut Your Heating Bills by Up to 30% This Winter Leeds double glazing specialists</p>
 								<ul className={styles.cardList} aria-label="Key benefits">
 									<li>Which?-approved, highly trusted local installers</li>
 									<li>Energy-efficient windows & doors that make your home warmer</li>

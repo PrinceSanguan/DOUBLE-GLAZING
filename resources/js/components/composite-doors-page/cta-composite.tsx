@@ -1,15 +1,15 @@
-import styles from './cta.module.css';
+import styles from './cta-composite.module.css';
 import { Button } from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
 
-const Cta = () => {
+const CtaComposite = () => {
 	return (
 		<section className={styles.ctaSection} id="buy-sell">
 			<div className={styles.ctaContainer}>
 				<div className={styles.ctaFrame}>
 					<div>
-						<h3 className={styles.ctaTitle}>See How Much You Could Save</h3>
-						<p className={styles.ctaText}>Get your free quote today or speak with our friendly team.</p>
+						<h3 className={styles.ctaTitle}>See Your Door Options & Prices<br/>Get Free Quote</h3>
+						<p className={styles.ctaText}>Speak with our friendly team.</p>
 					</div>
 					<div className={styles.ctaActions}>
 						<Link href="/quote" aria-label="Free Quote">
@@ -25,4 +25,4 @@ const Cta = () => {
 	);
 };
 
-export default Cta;
+export default CtaComposite;

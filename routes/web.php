@@ -16,6 +16,16 @@ use App\Http\Controllers\QuoteController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Composite Doors page
+Route::get('/composite-doors', function () {
+  return Inertia::render('CompositeDoors');
+})->name('composite-doors');
+
+// uPVC Windows & Doors page
+Route::get('/upvc-page', function () {
+  return Inertia::render('UpvcPage');
+})->name('upvc-page');
+
 // Quote request page
 Route::get('/quote', function () {
   return Inertia::render('Quote');

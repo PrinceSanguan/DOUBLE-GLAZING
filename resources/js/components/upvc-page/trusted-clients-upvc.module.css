@@ -1,0 +1,27 @@
+/* trusted-clients.module.css */
+
+/* Mobile-first base */
+.section { --section-padding: clamp(16px, 3vw, 32px); padding: var(--section-padding); box-sizing: border-box; margin-top: clamp(24px, 4vw, 48px); scroll-margin-top: calc(var(--header-height) + 8px); }
+.container { max-width: 1860px; width: 100%; margin: 0 auto; }
+.frame { background: #ffffff; color: #111111; border-radius: 1.25rem; padding: clamp(16px, 3vw, 32px); font-family: 'Instrument Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+.header { margin-bottom: clamp(12px, 2vw, 16px); }
+.title { font-size: clamp(1.75rem, 4.5vw, 2.5rem); font-weight: 800; letter-spacing: -0.01em; color: #111111; }
+.titleLight { font-weight: 300; opacity: 0.9; }
+.titleItalic { font-style: italic; color: var(--brand-blue); }
+.subtitle { color: #444; font-size: clamp(1rem, 2.2vw, 1.125rem); margin-top: 0.25rem; }
+
+.carousel { overflow: hidden; }
+.track { display: flex; gap: clamp(16px, 3vw, 24px); align-items: center; white-space: nowrap; width: max-content; animation: scroll-left 35s linear infinite; will-change: transform; }
+.logoCard { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: clamp(10px, 2.5vw, 16px); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.logoImage { max-height: 96px; width: auto; object-fit: contain; filter: saturate(0.95); }
+@keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-33.333%); } }
+
+/* Tablet */
+@media (min-width: 641px) {
+  .logoImage { max-height: 110px; }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .logoImage { max-height: 128px; }
+}

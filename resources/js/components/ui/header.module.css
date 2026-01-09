@@ -12,6 +12,35 @@
   height: var(--header-height);
 }
 
+.mobileBanner {
+  display: none;
+}
+
+.mobileCall {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  background: var(--brand-blue);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.mobileCallIcon {
+  color: #ffffff;
+}
+
+.callNumber {
+  color: inherit;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
 .nav {
   max-width: 1860px;
   margin: 0 auto;
@@ -35,6 +64,93 @@
   display: block;
 }
 
+.navLinks {
+  display: none;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburgerIcon {
+  width: 18px;
+  height: 14px;
+  display: grid;
+  align-content: space-between;
+}
+
+.hamburgerIcon span {
+  display: block;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 999px;
+  opacity: 0.95;
+}
+
+.mobileMenuOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16,16,20,0.55);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  display: grid;
+  align-items: start;
+  justify-items: end;
+  padding: calc(var(--header-height) + 12px) clamp(16px, 6vw, 48px) 16px;
+  box-sizing: border-box;
+}
+
+.mobileMenu {
+  width: min(360px, 92vw);
+  border-radius: 1rem;
+  background: rgba(20,20,24,0.92);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 46px rgba(0,0,0,0.46);
+  padding: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 12px 12px;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.mobileNavLink:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.16);
+}
+
+.navLink {
+  color: #e6e6e6;
+  text-decoration: none;
+  opacity: 0.85;
+  font-weight: 500;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  opacity: 1;
+  color: #ffffff;
+}
+
 .links {
   display: none;
   list-style: none;
@@ -50,12 +166,54 @@
 
 .actions { display: none; align-items: center; gap: 1rem; }
 .contact { opacity: 0.85; text-decoration: none; color: inherit; }
-.contactWhite { background: #ffffff; color: #101014; border-radius: 0.5rem; padding: 0.45rem 0.8rem; font-weight: 600; border: 1px solid #ffffff; }
+.contactWhite {
+  background: #ffffff;
+  color: #101014;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  font-weight: 600;
+  border: 1px solid #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
 .contactWhite:hover { background: #f2f2f2; }
 .bookBtn { border-radius: 0.5rem; padding-inline: 1rem; background: var(--brand-blue); border: 1px solid var(--brand-blue); }
 .bookBtn:hover { background: var(--brand-blue-dark); border-color: var(--brand-blue-dark); }
 
 @media (min-width: 641px) {
   .links { display: flex; }
+  .navLinks { display: flex; }
   .actions { display: flex; }
+}
+
+@media (max-width: 640px) {
+  /* Mobile-only: add the top call banner without changing desktop layout */
+  .header {
+    display: grid;
+    grid-template-rows: 44px 1fr;
+  }
+
+  .mobileBanner { display: block; }
+  .hamburger { display: inline-flex; }
+
+  /* Keep logo smaller on mobile (header height includes banner) */
+  .nav {
+    max-width: 100%;
+    width: 100%;
+    height: calc(var(--header-height) - 44px);
+    padding: 0 12px;
+    gap: 0;
+    justify-content: space-between;
+  }
+  
+  .brand {
+    flex-shrink: 0;
+  }
+  
+  .hamburger {
+    flex-shrink: 0;
+  }
+  
+  .logo { height: 34px; }
 }

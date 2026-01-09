@@ -1,0 +1,27 @@
+/* latest-videos.module.css */
+
+/* Mobile-first base */
+.section { --section-padding: clamp(16px, 3vw, 32px); padding: var(--section-padding); box-sizing: border-box; margin-top: clamp(24px, 4vw, 48px); scroll-margin-top: calc(var(--header-height) + 8px); }
+.container { max-width: 1860px; width: 100%; margin: 0 auto; }
+.frame { background: #ffffff; color: #111111; border-radius: 1.25rem; padding: clamp(16px, 3vw, 32px); font-family: 'Instrument Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+.header { margin-bottom: clamp(12px, 2vw, 16px); }
+.title { font-size: clamp(1.75rem, 4.5vw, 2.5rem); font-weight: 800; letter-spacing: -0.01em; color: #111111; }
+.titleLight { font-weight: 300; opacity: 0.9; }
+.titleItalic { font-style: italic; color: var(--brand-blue); }
+.subtitle { color: #444; font-size: clamp(1rem, 2.2vw, 1.125rem); margin-top: 0.25rem; }
+
+.grid { display: grid; grid-template-columns: 1fr; gap: clamp(12px, 2vw, 16px); }
+.card { display: grid; gap: 0.5rem; background: #f9fafb; border: 1px solid #e6e6e6; border-radius: 0.75rem; padding: clamp(12px, 2vw, 16px); }
+.mediaWrap { position: relative; width: 100%; }
+.video { width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 0.75rem; background: #000; }
+.caption { font-weight: 600; color: #111; }
+
+/* Tablet */
+@media (min-width: 641px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}

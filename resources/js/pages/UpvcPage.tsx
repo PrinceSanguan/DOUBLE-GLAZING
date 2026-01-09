@@ -1,23 +1,22 @@
-
 import { Head } from '@inertiajs/react';
 import React from 'react';
 import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
 import WhatsAppFloat from '@/components/ui/whatsapp-float';
-import Hero from '@/components/landing-page/hero';
-import Features from '@/components/landing-page/features';
-import AboutSection from '@/components/landing-page/about-section';
-import GoogleReviews from '@/components/landing-page/google-reviews';
-import TrustedClients from '@/components/landing-page/trusted-clients';
-import WhyUs from '@/components/landing-page/why-us';
-import Product from '@/components/landing-page/product';
-import Testimonial from '@/components/landing-page/testimonial';
-import Faq from '@/components/landing-page/faq';
-import Cta from '@/components/landing-page/cta';
-import FinalCta from '@/components/landing-page/final-cta';
-import LatestVideos from '@/components/landing-page/latest-videos';
+import HeroUpvc from '@/components/upvc-page/hero-upvc';
+import FeaturesUpvc from '@/components/upvc-page/features-upvc';
+import AboutSectionUpvc from '@/components/upvc-page/about-section-upvc';
+import GoogleReviewsUpvc from '@/components/upvc-page/google-reviews-upvc';
+import TrustedClientsUpvc from '@/components/upvc-page/trusted-clients-upvc';
+import WhyUsUpvc from '@/components/upvc-page/why-us-upvc';
+import ProductUpvc from '@/components/upvc-page/product-upvc';
+import TestimonialUpvc from '@/components/upvc-page/testimonial-upvc';
+import FaqUpvc from '@/components/upvc-page/faq-upvc';
+import CtaUpvc from '@/components/upvc-page/cta-upvc';
+import FinalCtaUpvc from '@/components/upvc-page/final-cta-upvc';
+import LatestVideosUpvc from '@/components/upvc-page/latest-videos-upvc';
 
-export default function Welcome() {
+export default function UpvcPage() {
     const [showToast, setShowToast] = React.useState(false);
     React.useEffect(() => {
         try {
@@ -30,7 +29,7 @@ export default function Welcome() {
     }, []);
     return (
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-            <Head title="leedsdoubleglazing">
+            <Head title="uPVC Windows & Doors - Select Products">
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             </Head>
@@ -65,18 +64,18 @@ export default function Welcome() {
                         </button>
                     </div>
                 )}
-                    <Hero />
-                    <Features />
-                    <GoogleReviews />
-                    <AboutSection />
-                    <WhyUs />
-                    <Product />
-                    <TrustedClients />
-                     <Cta />
-                     <Testimonial />
-                     <Faq />
-                     <FinalCta />
-                     <LatestVideos />
+                    <HeroUpvc />
+                    <FeaturesUpvc />
+                    <GoogleReviewsUpvc />
+                    <AboutSectionUpvc />
+                    <WhyUsUpvc />
+                    <ProductUpvc />
+                    <TrustedClientsUpvc />
+                     <CtaUpvc />
+                     <TestimonialUpvc />
+                     <FaqUpvc />
+                     <FinalCtaUpvc />
+                     <LatestVideosUpvc />
             </main>
             <Footer />
             <WhatsAppFloat />

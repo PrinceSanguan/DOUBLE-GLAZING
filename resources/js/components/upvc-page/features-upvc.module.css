@@ -1,0 +1,29 @@
+/* features.module.css */
+
+.section { padding: clamp(16px, 4vw, 32px) 0; }
+.container { max-width: 1860px; width: 100%; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
+
+.grid { display: grid; grid-template-columns: 1fr; gap: clamp(14px, 3vw, 24px); }
+
+.card { display: grid; grid-template-rows: auto 1fr; border-radius: 1rem; overflow: hidden; background: #ffffff; color: #111; border: 1px solid #e5e7eb; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.cardImage { width: 100%; height: clamp(160px, 24vw, 220px); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #f3f4f6; }
+.cardBody { display: grid; gap: 0.5rem; padding: clamp(12px, 2.5vw, 16px); }
+.cardTitle { font-size: clamp(1.05rem, 2.6vw, 1.25rem); font-weight: 700; letter-spacing: -0.01em; }
+.cardText { font-size: clamp(0.95rem, 2.2vw, 1rem); color: #374151; line-height: 1.6; }
+.cardFooter { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.25rem; }
+
+.cardAction { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 0.9rem; border-radius: 0.5rem; background: var(--brand-blue); color: #fff; text-decoration: none; font-weight: 600; border: 1px solid var(--brand-blue); }
+.cardAction:hover { background: var(--brand-blue-dark); }
+
+.cardActionSecondary { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 0.9rem; border-radius: 0.5rem; background: #fff; color: var(--brand-blue); text-decoration: none; font-weight: 600; border: 1px solid var(--brand-blue); }
+.cardActionSecondary:hover { background: #f0f7ff; }
+
+/* Tablet */
+@media (min-width: 641px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}

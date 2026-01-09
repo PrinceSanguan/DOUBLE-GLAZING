@@ -7,7 +7,7 @@ import styles from './quote.module.css';
 const Quote: React.FC = () => {
   const [form, setForm] = useState({
     interest: '',
-    when: '',
+    when: 'ASAP',
     postcode: '',
     address: '',
     name: '',
@@ -41,8 +41,7 @@ const Quote: React.FC = () => {
       const qpMap = ['postcode','address','name','number','email'] as const;
       qpMap.forEach((k) => { const v = qp(k); if (v) next[k] = v; });
       if (Object.keys(next).length) setForm(prev => ({ ...prev, ...next }));
-      if (qInterest && qWhen) setStep(2);
-      else if (qInterest) setStep(1);
+      if (qInterest) setStep(1);
     } catch {}
   }, []);
 
@@ -53,8 +52,8 @@ const Quote: React.FC = () => {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.interest || !form.when) {
-      alert('Please select interest and timeframe before submitting.');
+    if (!form.interest) {
+      alert('Please select what you are interested in before submitting.');
       return;
     }
     if (!form.number.trim()) {
@@ -140,7 +139,7 @@ const Quote: React.FC = () => {
                       <p className={styles.cardText}>{card.text}</p>
                       <button
                         type="button"
-                        onClick={() => { setForm(prev => ({ ...prev, interest: card.key })); setStep(1); }}
+                            onClick={() => { setForm(prev => ({ ...prev, interest: card.key })); setStep(1); }}
                         className={styles.cardCta}
                         aria-label={card.cta}
                         title={card.cta}
@@ -155,19 +154,6 @@ const Quote: React.FC = () => {
           )}
 
           {step === 1 && (
-            <label className={styles.label}>
-              <span>When would you like the work done?</span>
-              <select name="when" value={form.when} onChange={update} className={styles.select}>
-                <option value="">Select timeframe</option>
-                <option value="ASAP">ASAP</option>
-                <option value="Within 1 Month">Within 1 Month</option>
-                <option value="1 Month +">1 Month +</option>
-                <option value="Unsure">Unsure</option>
-              </select>
-            </label>
-          )}
-
-          {step === 2 && (
             <>
               <label className={styles.label}>
                 <span>Postcode</span>
@@ -210,11 +196,6 @@ const Quote: React.FC = () => {
                 Back
               </button>
               {step === 1 && (
-                <button type="button" onClick={() => setStep(2)} className={styles.btnPrimary}>
-                  Next
-                </button>
-              )}
-              {step === 2 && (
                 <button type="submit" className={styles.btnPrimary}>Submit</button>
               )}
             </div>

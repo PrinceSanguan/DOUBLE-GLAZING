@@ -1,8 +1,8 @@
-import styles from './final-cta.module.css';
+import styles from './final-cta-upvc.module.css';
 import { Button } from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
 
-const FinalCta = () => {
+const FinalCtaUpvc = () => {
 	return (
 		<section className={styles.finalCtaSection}>
 			<div className={styles.finalCtaContainer}>
@@ -26,4 +26,4 @@ const FinalCta = () => {
 	);
 };
 
-export default FinalCta;
+export default FinalCtaUpvc;

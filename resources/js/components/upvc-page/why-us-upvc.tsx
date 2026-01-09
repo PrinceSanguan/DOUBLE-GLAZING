@@ -1,4 +1,4 @@
-import styles from './why-us.module.css';
+import styles from './why-us-upvc.module.css';
 import { CheckCircle, Home, ShieldCheck, Wrench, Lock, Users } from 'lucide-react';
 
 const Icon = ({ i }: { i: number }) => {
@@ -19,25 +19,27 @@ const Icon = ({ i }: { i: number }) => {
 	}
 };
 
-const WhyUs = () => {
+const WhyUsUpvc = () => {
 	return (
 		<section className={styles.whyUsSection} id="neighborhoods">
 			<div className={styles.whyUsContainer}>
 				<div className={styles.whyUsFrame}>
 						<header className={styles.whyUsHeader}>
 							<h3 className={styles.title}>
-							<span className={styles.titleLight}>How We Make Your Leeds Home</span>
-							<span className={styles.titleItalic}> Warmer, Safer, Quieter</span>
-							</h3>						<p className={styles.subtitle} style={{marginTop: '0.25em', color: '#111', fontSize: 'clamp(1rem, 2vw, 1.15rem)', fontWeight: 400}}>
-							Every Select Products installation is designed around your home's needs.
-						</p>						</header>
+								<span className={styles.titleLight}>A Smarter Upgrade</span>
+								<span className={styles.titleItalic}> for Leeds Homes</span>
+							</h3>
+							<p className={styles.subtitle} style={{marginTop: '0.25em', color: '#111', fontSize: 'clamp(1rem, 2vw, 1.15rem)', fontWeight: 400}}>
+								Every installation is engineered around comfort, security, and long-term value not shortcuts.
+							</p>
+						</header>
 					<div className={styles.whyUsGrid}>
-					{[
-						{ title: 'A-Rated Energy Efficiency', text: 'Keep heat in, cold out. Less reliance on heating. Lower bills all year.' },
-						{ title: 'High-Security Locking Systems', text: 'Multi-point locks and toughened glass as standard. Tested to PAS 24 security standards.' },
-					{ title: 'Professional Installation with Minimal Disruption', text: `Most installations completed in 1–2 days. We tidy up as we go. You won't know we were there except for the beautiful new windows.` },
-					{ title: '10-Year Insurance-Backed Guarantee', text: 'Every window, every door, every installation protected. Full peace of mind.' },
-				].map((f, i) => (
+												{[
+													{ title: 'A-Rated Energy Performance', text: 'Designed to keep warmth in and energy bills down, year after year.' },
+													{ title: 'Advanced Home Security', text: 'Multi-point locking and reinforced glazing as standard  tested to British security standards.' },
+													{ title: 'Clean, Professional Installation', text: 'Most projects are completed within 1–2 days. Minimal disruption. Total respect for your home.' },
+													{ title: 'Guaranteed Peace of Mind', text: 'Every product and installation is protected with a 10-year insurance-backed guarantee.' },
+												].map((f, i) => (
 							<div className={styles.feature} key={i}>
 														<div className={styles.icon} aria-hidden>
 															<Icon i={i} />
@@ -55,4 +57,4 @@ const WhyUs = () => {
 	);
 };
 
-export default WhyUs;
+export default WhyUsUpvc;
