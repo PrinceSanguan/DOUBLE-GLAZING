@@ -7,7 +7,7 @@ type HeroProps = {
 
 const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-extender (6).webp' }) => {
 	const [interest, setInterest] = React.useState('Composite Doors');
-	const when = 'Immediately';
+	const when = 'N/A';
 	const [postcode, setPostcode] = React.useState('');
 	const [address, setAddress] = React.useState('');
 	const [name, setName] = React.useState('');
