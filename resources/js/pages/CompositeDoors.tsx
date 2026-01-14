@@ -21,7 +21,6 @@ export default function CompositeDoors() {
     const [showOfferModal, setShowOfferModal] = React.useState(false);
     
     React.useEffect(() => {
-        if (typeof window === 'undefined') return;
         try {
             const flag = localStorage.getItem('quoteSuccess');
             if (flag === '1') {

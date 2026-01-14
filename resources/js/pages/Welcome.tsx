@@ -20,7 +20,6 @@ import LatestVideos from '@/components/landing-page/latest-videos';
 export default function Welcome() {
     const [showToast, setShowToast] = React.useState(false);
     React.useEffect(() => {
-        if (typeof window === 'undefined') return;
         try {
             const flag = localStorage.getItem('quoteSuccess');
             if (flag === '1') {

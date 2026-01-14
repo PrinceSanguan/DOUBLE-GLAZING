@@ -4,7 +4,7 @@ import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
 import styles from './quote.module.css';
 
-const QuoteSuccessModal = React.lazy(() => import('@/components/quote/QuoteSuccessModal'));
+const QuoteSuccessModal = React.lazy(() => import('./QuoteSuccessModal'));
 
 const Quote: React.FC = () => {
   const [form, setForm] = useState({
@@ -23,7 +23,6 @@ const Quote: React.FC = () => {
 
   // Prefill from query params and skip early steps if provided
   useEffect(() => {
-    if (typeof window === 'undefined') return;
     try {
       const qs = new URLSearchParams(window.location.search);
       const qInterest = (qs.get('interest') || '').trim();

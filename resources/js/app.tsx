@@ -9,9 +9,7 @@ import { createRoot } from 'react-dom/client';
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 // Force light mode by ensuring the 'dark' class is not present
-if (typeof document !== 'undefined') {
-    document.documentElement.classList.remove('dark');
-}
+document.documentElement.classList.remove('dark');
 
 createInertiaApp({
     title: (title) => title ? `${title}` : appName,

@@ -30,7 +30,7 @@ export default function SettingsLayout({ children }: PropsWithChildren) {
         return null;
     }
 
-    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+    const currentPath = window.location.pathname;
 
     return (
         <div className="px-4 py-6">

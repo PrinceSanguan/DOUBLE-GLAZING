@@ -1,3 +1,0 @@
-{
-  "postdeploy": "npm ci && npm run build:ssr && php artisan optimize:clear && php artisan optimize && php artisan inertia:stop-ssr; php artisan inertia:start-ssr &"
-}
