@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import laravel from 'laravel-vite-plugin';
+import purgecss from 'vite-plugin-purgecss';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
@@ -13,9 +14,41 @@ export default defineConfig({
         }),
         react(),
         tailwindcss(),
+        purgecss({
+            content: [
+                './resources/**/*.tsx',
+                './resources/**/*.ts',
+                './resources/**/*.js',
+                './resources/**/*.jsx',
+                './resources/**/*.html',
+                './resources/**/*.blade.php',
+            ],
+        }),
     ],
     esbuild: {
         jsx: 'automatic',
+    },
+    build: {
+        target: 'es2017',
+        cssCodeSplit: true,
+        sourcemap: false,
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    vendor: [
+                        'react',
+                        'react-dom',
+                        'lucide-react',
+                    ],
+                    'radix-ui': [
+                        '@radix-ui/react-separator',
+                        '@radix-ui/react-dialog',
+                        '@radix-ui/react-dropdown-menu',
+                        '@radix-ui/react-slot',
+                    ],
+                },
+            },
+        },
     },
     resolve: {
         alias: {

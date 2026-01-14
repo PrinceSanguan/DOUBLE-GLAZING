@@ -9,7 +9,7 @@ const Footer = () => {
 						<div className={styles.grid}>
 							<div>
 								<div className={styles.brand}>
-									<img src="/images/select-logo.svg" alt="Select Products" style={{ height: '44px', width: 'auto' }} />
+									<img src="/images/select-logo.svg" alt="Select Products" style={{ height: '44px', width: 'auto' }} loading="lazy" />
 								</div>
 								<p>Company Reg Number 7601494 Registered in England and Wales. Select Products (Yorkshire) Limited trading as Select Products.</p>
 							</div>

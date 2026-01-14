@@ -29,7 +29,7 @@ const Header = () => {
 			</div>
 			<nav className={styles.nav} aria-label="Primary">
 				<Link href="/" className={styles.brand} aria-label="Home">
-					<img src="/images/select-logo.svg" alt="Select logo" className={styles.logo} />
+					<img src="/images/select-logo.svg" alt="Select logo" className={styles.logo} loading="lazy" />
 				</Link>
 				<button
 					type="button"

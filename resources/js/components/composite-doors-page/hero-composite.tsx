@@ -1,6 +1,8 @@
 import styles from './hero-composite.module.css';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Check, Phone, ArrowRight } from 'lucide-react';
+
+const SuccessModalComposite = React.lazy(() => import('./SuccessModalComposite'));
 
 type HeroProps = {
 	imageUrl?: string;
@@ -160,24 +162,17 @@ const HeroComposite: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-
 							</form>
 						</aside>
 
-						{/* Success Modal */}
-						{showModal && (
-							<div className={styles.modalOverlay} role="dialog" aria-modal="true" aria-labelledby="heroQuoteModalTitle">
-								<div className={styles.modal}>
-									<h2 id="heroQuoteModalTitle" className={styles.modalTitle}>Confirm Submission</h2>
-									<p className={styles.modalText}>We received your {interest} quote details. Proceed back to the homepage?</p>
-									<div className={styles.modalActions}>
-										<button
-											type="button"
-											className={styles.btnPrimary}
-											onClick={() => { try { localStorage.setItem('quoteSuccess', '1'); } catch {} window.location.assign('/'); }}
-										>
-											Confirm
-										</button>
-									</div>
-								</div>
-							</div>
-						)}
+						<Suspense fallback={null}>
+							{showModal && (
+								<SuccessModalComposite
+									interest={interest}
+									onClose={() => {
+										try { localStorage.setItem('quoteSuccess', '1'); } catch {}
+										window.location.assign('/');
+									}}
+								/>
+							)}
+						</Suspense>
 					</div>
 				</div>
 			</div>

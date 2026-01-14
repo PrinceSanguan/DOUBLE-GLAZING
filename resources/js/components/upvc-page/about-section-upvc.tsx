@@ -32,7 +32,7 @@ const AboutSectionUpvc = () => {
 						</div>
 						<div
 							className={styles.aboutImage}
-							style={{ backgroundImage: "url('/images/Hero/house-extension-wetherby-1.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+							style={{ backgroundImage: "url('/images/Hero/house-extension-wetherby-1.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
 							aria-label="Building preview"
 						/>
 					</div>

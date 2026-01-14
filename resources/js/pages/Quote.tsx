@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, Suspense } from 'react';
 import { router } from '@inertiajs/react';
 import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
 import styles from './quote.module.css';
+
+const QuoteSuccessModal = React.lazy(() => import('./QuoteSuccessModal'));
 
 const Quote: React.FC = () => {
   const [form, setForm] = useState({
@@ -114,7 +116,7 @@ const Quote: React.FC = () => {
                     key: 'Windows',
                     title: 'Windows',
                     text: 'Double glazed windows add style, security and energy efficiency to your home.',
-                    image: '/images/Hero/dsc9477-1-663x1024.jpg',
+                    image: '/images/Hero/dsc9477-1-663x1024.webp',
                     cta: 'Start Window Quote',
                   },
                   {
@@ -205,19 +207,14 @@ const Quote: React.FC = () => {
         </div>
       </main>
       <Footer />
-      {showModal && (
-        <div className={styles.modalOverlay} role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
-          <div className={styles.modal}>
-            <h2 id="quoteModalTitle" className={styles.modalTitle}>Confirm Submission</h2>
-            <p className={styles.modalText}>
-              We received your {form.interest || 'selected'} quote details. Proceed back to the homepage?
-            </p>
-            <div className={styles.modalActions}>
-              <button type="button" className={styles.btnPrimary} onClick={onConfirm}>Confirm</button>
-            </div>
-          </div>
-        </div>
-      )}
+      <Suspense fallback={null}>
+        {showModal && (
+          <QuoteSuccessModal
+            interest={form.interest}
+            onConfirm={onConfirm}
+          />
+        )}
+      </Suspense>
     </div>
   );
 };
