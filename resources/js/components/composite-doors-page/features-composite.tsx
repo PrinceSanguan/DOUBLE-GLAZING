@@ -51,11 +51,16 @@ const FeaturesComposite: React.FC = () => {
         <div className={styles.grid}>
           {items.map((item, idx) => (
             <article className={styles.card} key={idx} aria-label={item.title}>
-              <div
-                className={styles.cardImage}
-                style={{ backgroundImage: `url(${item.image})` }}
-                aria-label={`${item.title} image`}
-              />
+              <div className={styles.cardImage}>
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  width="768"
+                  height="512"
+                  loading={idx === 0 ? 'eager' : 'lazy'}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
               <div className={styles.cardBody}>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardText} dangerouslySetInnerHTML={{ __html: item.text }} />

@@ -23,7 +23,16 @@ const ProductComposite = () => {
 							{ title: 'Aluminium Doors', text: 'Strong, stylish aluminium doors for any property.', image: '/images/Hero/smart076-830x556@2x-1536x1029.jpg' },
 						].map((p, i) => (
 							<article className={styles.card} key={i}>
-								<div className={styles.cardImg} style={{ backgroundImage: `url(${p.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} aria-label={`${p.title} image`} />
+								<div className={styles.cardImg}>
+									<img 
+										src={p.image} 
+										alt={p.title}
+										width="768"
+										height="512"
+										loading="lazy"
+										style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+									/>
+								</div>
 								<div className={styles.cardBody}>
 									<h4 className={styles.cardTitle}>{p.title}</h4>
 									<p className={styles.cardText}>{p.text}</p>

@@ -32,9 +32,16 @@ const AboutSectionComposite = () => {
 						</div>
 						<div
 							className={styles.aboutImage}
-							style={{ backgroundImage: "url('/images/Hero/house-extension-wetherby-1.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-							aria-label="Building preview"
-						/>
+						>
+							<img 
+								src="/images/Hero/house-extension-wetherby-1.jpg"
+								alt="Building preview"
+								width="800"
+								height="600"
+								loading="lazy"
+								style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
