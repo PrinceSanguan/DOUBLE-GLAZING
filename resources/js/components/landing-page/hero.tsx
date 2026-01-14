@@ -1,8 +1,6 @@
 import styles from './hero.module.css';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
-
-const SuccessModal = React.lazy(() => import('./SuccessModal'));
 
 type HeroProps = {
 	imageUrl?: string;
@@ -137,18 +135,27 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 							</div>
 						</aside>
 
-						{/* Success Modal */}
-						<Suspense fallback={null}>
-							{showModal && (
-								<SuccessModal
-									interest={interest}
-									onClose={() => {
-										try { localStorage.setItem('quoteSuccess', '1'); } catch {}
-										window.location.assign('/');
-									}}
-								/>
-							)}
-						</Suspense>
+					{/* Success Modal */}
+					{showModal && (
+						<div className={styles.modalOverlay} role="dialog" aria-modal="true" aria-labelledby="heroQuoteModalTitle">
+							<div className={styles.modal}>
+								<div className={styles.modalIconWrapper}>
+									<CheckCircle2 size={56} strokeWidth={1.5} className={styles.modalIcon} />
+								</div>
+								<h2 id="heroQuoteModalTitle" className={styles.modalTitle}>Quote Request Received!</h2>
+								<p className={styles.modalText}>Thank you for your interest in {interest}. We've received your details and a Leeds specialist will contact you shortly to discuss your quote.</p>
+								<div className={styles.modalActions}>
+									<button
+										type="button"
+										className={styles.btnPrimary}
+										onClick={() => { try { localStorage.setItem('quoteSuccess', '1'); } catch {} window.location.assign('/'); }}
+									>
+										Back to Home
+									</button>
+								</div>
+							</div>
+						</div>
+					)}
 					</div>
 				</div>
 			</div>

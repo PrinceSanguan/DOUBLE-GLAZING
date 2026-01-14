@@ -36,7 +36,7 @@ const items: readonly Feature[] = [
     title: 'Double Glazing Specialists In Leeds',
     text:
       'Local family-run business for <strong>high security, A-rated windows and doors</strong> in uPVC, timber and aluminium. Proudly serving Leeds, Pudsey, Horsforth, Cookridge and across West & North Yorkshire. Request your <strong>FREE no-obligation online quote 24/7</strong>. Discuss your project today with our home improvement experts.',
-    image: '/images/Hero/shutterstock_1145334395-768x512.webp',
+    image: '/images/Hero/shutterstock_1145334395-768x512.jpg',
     leftLabel: 'Get Free Quote',
     leftHref: '/quote',
     rightLabel: 'Call Now: 01132578933',
