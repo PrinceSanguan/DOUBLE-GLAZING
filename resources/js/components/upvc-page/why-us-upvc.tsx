@@ -35,10 +35,10 @@ const WhyUsUpvc = () => {
 						</header>
 					<div className={styles.whyUsGrid}>
 												{[
-													{ title: 'A-Rated Energy Performance', text: 'Designed to keep warmth in and energy bills down, year after year.' },
-													{ title: 'Advanced Home Security', text: 'Multi-point locking and reinforced glazing as standard  tested to British security standards.' },
-													{ title: 'Clean, Professional Installation', text: 'Most projects are completed within 1–2 days. Minimal disruption. Total respect for your home.' },
-													{ title: 'Guaranteed Peace of Mind', text: 'Every product and installation is protected with a 10-year insurance-backed guarantee.' },
+													{ title: 'A-Rated Energy Performance', text: 'Designed to <strong>keep warmth in and energy bills down</strong>, year after year.' },
+													{ title: 'Advanced Home Security', text: '<strong>Multi-point locking and reinforced glazing</strong> as standard  tested to <strong>British security standards.</strong>' },
+													{ title: 'Clean, Professional Installation', text: '<strong>Most projects are completed within 1–2 days.</strong> Minimal disruption. Total respect for your home.' },
+													{ title: 'Guaranteed Peace of Mind', text: '<strong>Every product and installation is protected</strong> with a <strong>10-year insurance-backed guarantee.</strong>' },
 												].map((f, i) => (
 							<div className={styles.feature} key={i}>
 														<div className={styles.icon} aria-hidden>
@@ -46,7 +46,7 @@ const WhyUsUpvc = () => {
 														</div>
 								<div>
 									<div className={styles.fTitle}>{f.title}</div>
-									<div className={styles.fText}>{f.text}</div>
+									<div className={styles.fText} dangerouslySetInnerHTML={{ __html: f.text }} />
 								</div>
 							</div>
 						))}

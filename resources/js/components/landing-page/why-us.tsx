@@ -33,18 +33,18 @@ const WhyUs = () => {
 						</p>						</header>
 					<div className={styles.whyUsGrid}>
 					{[
-						{ title: 'A-Rated Energy Efficiency', text: 'Keep heat in, cold out. Less reliance on heating. Lower bills all year.' },
-						{ title: 'High-Security Locking Systems', text: 'Multi-point locks and toughened glass as standard. Tested to PAS 24 security standards.' },
-					{ title: 'Professional Installation with Minimal Disruption', text: `Most installations completed in 1–2 days. We tidy up as we go. You won't know we were there except for the beautiful new windows.` },
-					{ title: '10-Year Insurance-Backed Guarantee', text: 'Every window, every door, every installation protected. Full peace of mind.' },
+						{ title: 'A-Rated Energy Efficiency', text: '<strong>Keep heat in, cold out.</strong> Less reliance on heating. <strong>Lower bills all year.</strong>' },
+						{ title: 'High-Security Locking Systems', text: '<strong>Multi-point locks and toughened glass</strong> as standard. Tested to <strong>PAS 24 security standards.</strong>' },
+					{ title: 'Professional Installation with Minimal Disruption', text: `<strong>Most installations completed in 1–2 days.</strong> We tidy up as we go. You won't know we were there except for the beautiful new windows.` },
+					{ title: '10-Year Insurance-Backed Guarantee', text: '<strong>Every window, every door, every installation protected.</strong> Full peace of mind.' },
 				].map((f, i) => (
 							<div className={styles.feature} key={i}>
-														<div className={styles.icon} aria-hidden>
-															<Icon i={i} />
-														</div>
+												<div className={styles.icon} aria-hidden>
+													<Icon i={i} />
+												</div>
 								<div>
 									<div className={styles.fTitle}>{f.title}</div>
-									<div className={styles.fText}>{f.text}</div>
+									<div className={styles.fText} dangerouslySetInnerHTML={{ __html: f.text }} />
 								</div>
 							</div>
 						))}

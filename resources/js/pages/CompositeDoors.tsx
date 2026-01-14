@@ -173,20 +173,20 @@ export default function CompositeDoors() {
                             
                             <div
                                 style={{
-                                    background: 'linear-gradient(135deg, var(--brand-blue), #095e7f)',
+                                    background: 'transparent',
                                     borderRadius: '16px',
                                     padding: 'clamp(20px, 4vw, 28px)',
                                     marginBottom: '24px',
-                                    boxShadow: '0 8px 24px rgba(10,107,144,0.25)',
+                                    border: '2px solid var(--brand-blue)',
                                 }}
                             >
                                 <div
                                     style={{
                                         fontSize: 'clamp(1.75rem, 6vw, 2.5rem)',
                                         fontWeight: 800,
-                                        color: '#ffffff',
+                                        color: 'var(--brand-blue)',
                                         marginBottom: '8px',
-                                        textShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                                        textShadow: 'none',
                                     }}
                                 >
                                     £100 OFF Composite Doors Today
@@ -195,7 +195,7 @@ export default function CompositeDoors() {
                                     style={{
                                         fontSize: 'clamp(1.1rem, 4vw, 1.35rem)',
                                         fontWeight: 600,
-                                        color: '#eef6fa',
+                                        color: '#3a3f4b',
                                     }}
                                 >
                                     Save Up To 25% in Our Winter Sale
@@ -209,24 +209,26 @@ export default function CompositeDoors() {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     gap: '10px',
-                                    background: 'linear-gradient(135deg, #0a6b90, #095e7f)',
+                                    background: 'linear-gradient(135deg, #0a6b90, #4cb5e7)',
                                     color: '#ffffff',
                                     fontSize: 'clamp(1rem, 3.5vw, 1.1rem)',
                                     fontWeight: 700,
                                     padding: 'clamp(14px, 3vw, 18px) clamp(28px, 6vw, 40px)',
                                     borderRadius: '12px',
                                     textDecoration: 'none',
-                                    border: '2px solid transparent',
-                                    boxShadow: '0 6px 20px rgba(10,107,144,0.3)',
+                                    border: 'none',
+                                    boxShadow: '0 6px 20px rgba(10,107,144,0.4)',
                                     transition: 'all 0.2s ease',
                                 }}
                                 onMouseOver={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, #4cb5e7, #0a6b90)';
                                     e.currentTarget.style.transform = 'translateY(-2px)';
-                                    e.currentTarget.style.boxShadow = '0 10px 28px rgba(10,107,144,0.4)';
+                                    e.currentTarget.style.boxShadow = '0 10px 28px rgba(10,107,144,0.5)';
                                 }}
                                 onMouseOut={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, #0a6b90, #4cb5e7)';
                                     e.currentTarget.style.transform = 'translateY(0)';
-                                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(10,107,144,0.3)';
+                                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(10,107,144,0.4)';
                                 }}
                             >
                                 Claim My £100 Saving

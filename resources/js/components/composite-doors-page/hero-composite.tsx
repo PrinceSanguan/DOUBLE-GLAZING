@@ -62,39 +62,53 @@ const HeroComposite: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-
 					/>
 					<div className={styles.heroContent}>
 						<div className={styles.leftPanel}>
-							<h1 className={styles.title}>
-								Upgrade Your Home with Stylish & High Security
-								<span className={styles.titleAccent}>Composite Doors in Leeds</span>
-							</h1>
-								<p className={styles.subtitle}>
-									Fully Fitted Composite Doors that keep your Leeds home safer, warmer, and stylish professionally installed by trusted Which? Approved local specialists.
-								</p>
-							<div className={styles.trustRow} aria-label="Trust indicators">
-							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> Precision installation with minimal disruption</span>
-							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> 10-year insurance-backed guarantee for total peace of mind</span>
+							<div className={styles.trustBadge}>
+								Which? Approved • Police-Approved Security • Local Leeds Installers
 							</div>
-							<div className={styles.ctaRow}>
-								<a href="/quote" className={styles.primaryCta} aria-label="Request your free composite doors quote" title="Request your free composite doors quote">
-									Request Your Free Composite Doors Quote
-									<small className={styles.ctaSmall}>Which? Approved • Police-Approved Security • Local Leeds Installers</small>
+							
+							<h1 className={styles.title}>
+								Composite Doors in Leeds
+								<span className={styles.titleHighlight}>Upgrade Your Home with Stylish & High Security</span>
+							</h1>
+							
+							<p className={styles.subheadline}>
+								Fully Fitted Composite Doors that keep your Leeds home safer, warmer, and stylish professionally installed by trusted Which? Approved local specialists.
+							</p>
+							
+							<div className={styles.featuresGrid}>
+								<div className={styles.featureItem}>
+									<Check size={18} strokeWidth={2.5} className={styles.checkIcon} />
+									<span>Minimal disruption installation</span>
+								</div>
+								<div className={styles.featureItem}>
+									<Check size={18} strokeWidth={2.5} className={styles.checkIcon} />
+									<span>10-year insurance-backed guarantee</span>
+								</div>
+								<div className={styles.featureItem}>
+									<Check size={18} strokeWidth={2.5} className={styles.checkIcon} />
+									<span>Huge selection of door furniture</span>
+								</div>
+								<div className={styles.featureItem}>
+									<Check size={18} strokeWidth={2.5} className={styles.checkIcon} />
+									<span>Customisable glazing options</span>
+								</div>
+							</div>
+							
+							<div className={styles.ctaButtons}>
+								<a href="/quote" className={styles.primaryButton}>
+									Get Quote <ArrowRight size={20} strokeWidth={2.5} />
+								</a>
+								<a href="tel:01132578933" className={styles.secondaryButton}>
+									<Phone size={18} strokeWidth={2} />
+									0113 257 8933
 								</a>
 							</div>
+							
 							<div className={styles.secondaryCta}>
 								<p className={styles.secondaryLabel}>Prefer a conversation?</p>
 								<a href="tel:01132578933" className={styles.phoneLink}>
-								<Phone size={16} strokeWidth={2} /> Speak to a Leeds glazing specialist: <strong>0113 257 8933</strong>
+									<Phone size={16} strokeWidth={2} /> Speak to a Leeds glazing specialist: <strong>0113 257 8933</strong>
 								</a>
-							</div>
-							<div className={styles.benefitsCard} aria-label="Key benefits">
-								<div className={styles.cardBody}>
-									<ul className={styles.cardList}>
-												<li>24 Door styles</li>
-												<li>11 choices of colour and finish</li>
-												<li>Huge selection of door furniture</li>
-												<li>Standard and customisable glazing options</li>
-												<li>Cottage, traditional, and contemporary composite door styles available</li>
-									</ul>
-								</div>
 							</div>
 						</div>
 

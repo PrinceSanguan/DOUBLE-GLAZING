@@ -178,8 +178,8 @@
   gap: 8px;
 }
 .contactWhite:hover { background: #f2f2f2; }
-.bookBtn { border-radius: 0.5rem; padding-inline: 1rem; background: var(--brand-blue); border: 1px solid var(--brand-blue); }
-.bookBtn:hover { background: var(--brand-blue-dark); border-color: var(--brand-blue-dark); }
+.bookBtn { border-radius: 0.5rem; padding-inline: 1rem; background: linear-gradient(135deg, #0a6b90, #4cb5e7); border: none; box-shadow: 0 4px 12px rgba(10, 107, 144, 0.3); transition: all 0.2s ease; }
+.bookBtn:hover { background: linear-gradient(135deg, #4cb5e7, #0a6b90); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(10, 107, 144, 0.4); }
 
 @media (min-width: 641px) {
   .links { display: flex; }

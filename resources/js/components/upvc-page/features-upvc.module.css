@@ -12,8 +12,8 @@
 .cardText { font-size: clamp(0.95rem, 2.2vw, 1rem); color: #374151; line-height: 1.6; }
 .cardFooter { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.25rem; }
 
-.cardAction { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 0.9rem; border-radius: 0.5rem; background: var(--brand-blue); color: #fff; text-decoration: none; font-weight: 600; border: 1px solid var(--brand-blue); }
-.cardAction:hover { background: var(--brand-blue-dark); }
+.cardAction { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 0.9rem; border-radius: 0.5rem; background: linear-gradient(135deg, #0a6b90, #4cb5e7); color: #fff; text-decoration: none; font-weight: 600; border: none; box-shadow: 0 4px 12px rgba(10, 107, 144, 0.3); transition: all 0.2s ease; }
+.cardAction:hover { background: linear-gradient(135deg, #4cb5e7, #0a6b90); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(10, 107, 144, 0.4); }
 
 .cardActionSecondary { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 0.9rem; border-radius: 0.5rem; background: #fff; color: var(--brand-blue); text-decoration: none; font-weight: 600; border: 1px solid var(--brand-blue); }
 .cardActionSecondary:hover { background: #f0f7ff; }

@@ -23,9 +23,9 @@ const items: readonly Feature[] = [
     rightHref: 'tel:01132578933',
   },
   {
-    title: 'Qualified Conservatory & Extension Builders',
+    title: 'uPVC Windows & Doors',
     text:
-      'Create a living space for you and your family to enjoy all year round. Our team will fully project manage the design and build of your dream conservatory or glazed extension. Get your free quote today.',
+      'Upgrade your home with energy-efficient uPVC windows and doors. Our A-rated double glazing reduces heating bills by up to 30%, eliminates draughts, and dramatically cuts noise pollution. Available in various styles and colours, all installed by Which?-approved local experts with a 10-year insurance-backed guarantee.',
     image: '/images/Hero/p-shaped-conservatory.webp',
     leftLabel: 'Get Free Quote',
     leftHref: '/quote',
@@ -58,7 +58,7 @@ const Features: React.FC = () => {
               />
               <div className={styles.cardBody}>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardText}>{item.text}</p>
+                <p className={styles.cardText} dangerouslySetInnerHTML={{ __html: item.text }} />
                 <div className={styles.cardFooter}>
                   <a
                     href={item.leftHref}

@@ -35,10 +35,10 @@ const WhyUsComposite = () => {
 						</header>
 					<div className={styles.whyUsGrid}>
 					{[
-						{ title: 'Solid-Core Security Performance', text: 'Reinforced composite cores with advanced multi-point locking. Toughened safety glass as standard. Independently tested to PAS 24 security standards.' },
-						{ title: 'Superior Thermal Insulation', text: 'Dense composite construction reduces heat loss and draughts. Keeps warmth inside during winter and helps lower energy bills all year round.' },
-						{ title: 'Precision Installation, Minimal Disruption', text: 'Expert local installers. Most doors are fitted within a single day. Clean, efficient workmanship with full respect for your home.' },
-						{ title: '10-Year Insurance-Backed Guarantee', text: 'Every composite door is fully protected with an insurance-backed guarantee  long-term security and complete peace of mind.' },
+						{ title: 'Solid-Core Security Performance', text: '<strong>Reinforced composite cores</strong> with advanced multi-point locking. <strong>Toughened safety glass</strong> as standard. Independently tested to <strong>PAS 24 security standards.</strong>' },
+						{ title: 'Superior Thermal Insulation', text: '<strong>Dense composite construction reduces heat loss</strong> and draughts. Keeps warmth inside during winter and helps <strong>lower energy bills</strong> all year round.' },
+						{ title: 'Precision Installation, Minimal Disruption', text: '<strong>Expert local installers.</strong> Most doors are fitted within a <strong>single day.</strong> Clean, efficient workmanship with full respect for your home.' },
+						{ title: '10-Year Insurance-Backed Guarantee', text: '<strong>Every composite door is fully protected</strong> with an insurance-backed guarantee  long-term security and complete peace of mind.' },
 					].map((f, i) => (
 							<div className={styles.feature} key={i}>
 														<div className={styles.icon} aria-hidden>
@@ -46,7 +46,7 @@ const WhyUsComposite = () => {
 														</div>
 								<div>
 									<div className={styles.fTitle}>{f.title}</div>
-									<div className={styles.fText}>{f.text}</div>
+									<div className={styles.fText} dangerouslySetInnerHTML={{ __html: f.text }} />
 								</div>
 							</div>
 						))}

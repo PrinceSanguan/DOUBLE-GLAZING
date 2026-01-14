@@ -1,6 +1,6 @@
 import styles from './hero-upvc.module.css';
 import React from 'react';
-import { Check, Phone } from 'lucide-react';
+import { Check, Phone, ArrowRight } from 'lucide-react';
 
 type HeroProps = {
 	imageUrl?: string;
@@ -62,41 +62,53 @@ const HeroUpvc: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image
 					/>
 					<div className={styles.heroContent}>
 						<div className={styles.leftPanel}>
+							<div className={styles.trustBadge}>
+								Which? Trusted Trader Approved • FENSA Registered • 10-Year Guarantee
+							</div>
+							
 							<h1 className={styles.title}>
 								Exceptional uPVC Windows in Leeds
-								<span className={styles.titleAccent}> Engineered for Warmth, Security & Lasting Value</span>
+								<span className={styles.titleHighlight}>Engineered for Warmth, Security & Lasting Value</span>
 							</h1>
-							<p className={styles.subtitle}>
-								High-performance uPVC window replacement, precision-crafted in the UK and expertly installed by Which?-approved Leeds specialists for homeowners who expect more than "standard double glazing."
+							
+							<p className={styles.subheadline}>
+								High-performance uPVC window replacement, precision-crafted in the UK and expertly installed by Which?-approved Leeds specialists
 							</p>
-							<div className={styles.trustRow} aria-label="Trust indicators">
-							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> Which? Trusted Trader Approved</span>
-							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> FENSA Registered & Fully Accredited</span>
-							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> 10-Year Insurance-Backed Guarantee</span>
-							<span className={styles.trustPill}><Check size={14} strokeWidth={2.5} /> Serving Leeds & West Yorkshire Homes</span>
+							
+							<div className={styles.trustSignals}>
+								<div className={styles.trustItem}>
+									<Check size={18} strokeWidth={2.5} className={styles.checkIcon} />
+									<span>Which? Trusted Trader Approved</span>
+								</div>
+								<div className={styles.trustItem}>
+									<Check size={18} strokeWidth={2.5} className={styles.checkIcon} />
+									<span>FENSA Registered & Fully Accredited</span>
+								</div>
+								<div className={styles.trustItem}>
+									<Check size={18} strokeWidth={2.5} className={styles.checkIcon} />
+									<span>10-Year Insurance-Backed Guarantee</span>
+								</div>
+								<div className={styles.trustItem}>
+									<Check size={18} strokeWidth={2.5} className={styles.checkIcon} />
+									<span>Serving Leeds & West Yorkshire Homes</span>
+								</div>
 							</div>
-							<div className={styles.ctaRow}>
-								<a href="/quote" className={styles.primaryCta} aria-label="Request your free uPVC windows quote" title="Request your free uPVC windows quote">
-									Request Your Free uPVC Windows Quote
-									<small className={styles.ctaSmall}>Clear pricing • No obligation • Personalised to your home</small>
+							
+							<div className={styles.ctaButtons}>
+								<a href="/quote" className={styles.primaryButton}>
+									Get Quote <ArrowRight size={20} strokeWidth={2.5} />
+								</a>
+								<a href="tel:01132578933" className={styles.secondaryButton}>
+									<Phone size={18} strokeWidth={2} />
+									0113 257 8933
 								</a>
 							</div>
+							
 							<div className={styles.secondaryCta}>
 								<p className={styles.secondaryLabel}>Prefer a conversation?</p>
 								<a href="tel:01132578933" className={styles.phoneLink}>
-								<Phone size={16} strokeWidth={2} /> Speak to a Leeds glazing specialist: <strong>0113 257 8933</strong>
+									<Phone size={16} strokeWidth={2} /> Speak to a Leeds glazing specialist: <strong>0113 257 8933</strong>
 								</a>
-							</div>
-							<div className={styles.benefitsCard} aria-label="Key benefits">
-								<div className={styles.cardBody}>
-									<ul className={styles.cardList}>
-										<li>Superior thermal performance to help reduce heat loss and energy bills</li>
-										<li>Advanced multi-point security systems for complete peace of mind</li>
-										<li>Made-to-measure craftsmanship to complement modern & period homes</li>
-										<li>Low-maintenance, colour-stable uPVC built to perform for decades</li>
-										<li>Professional, tidy installation with minimal disruption to your home</li>
-									</ul>
-								</div>
 							</div>
 						</div>
 

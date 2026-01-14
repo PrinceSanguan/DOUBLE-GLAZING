@@ -10,8 +10,8 @@
 .ctaText { color: #c7c7c7; }
 .ctaActions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
-.primaryBtn { background: var(--brand-blue) !important; color: #fff !important; border: 1px solid var(--brand-blue) !important; }
-.primaryBtn:hover { background: var(--brand-blue-dark) !important; border-color: var(--brand-blue-dark) !important; }
+.primaryBtn { background: linear-gradient(135deg, #0a6b90, #4cb5e7) !important; color: #fff !important; border: none !important; box-shadow: 0 4px 12px rgba(10, 107, 144, 0.3) !important; transition: all 0.2s ease !important; }
+.primaryBtn:hover { background: linear-gradient(135deg, #4cb5e7, #0a6b90) !important; transform: translateY(-1px) !important; box-shadow: 0 6px 16px rgba(10, 107, 144, 0.4) !important; }
 .secondaryBtn { background: transparent !important; color: var(--brand-blue) !important; border: 1px solid var(--brand-blue) !important; }
 .secondaryBtn:hover { background: rgba(16, 16, 20, 0.08) !important; }
 .secondaryWhiteBtn { background: #ffffff !important; color: #101014 !important; border: 1px solid #ffffff !important; }

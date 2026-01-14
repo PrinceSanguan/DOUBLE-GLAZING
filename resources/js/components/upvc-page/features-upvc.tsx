@@ -15,7 +15,7 @@ const items: readonly Feature[] = [
   {
     title: 'Composite Door Installers In Leeds',
     text:
-      'Enhance the style and security of your home with a bespoke front door. Composite doors combine traditional aesthetics with modern performance. It\'s sure to impress! To talk to us about a free double glazing quote, get in touch with the friendly team at Select Products today.',
+      'Enhance the style and security of your home with a bespoke front door. Composite doors combine <strong>traditional aesthetics with modern performance</strong>. It\'s sure to impress! To talk to us about a <strong>free double glazing quote</strong>, get in touch with the friendly team at Select Products today.',
     image: '/images/Hero/Agate-Grey-Jacobean-Border-768x759-1.webp',
     leftLabel: 'Get Free Quote',
     leftHref: '/quote',
@@ -23,9 +23,9 @@ const items: readonly Feature[] = [
     rightHref: 'tel:01132578933',
   },
   {
-    title: 'Qualified Conservatory & Extension Builders',
+    title: 'uPVC Windows & Doors',
     text:
-      'Create a living space for you and your family to enjoy all year round. Our team will fully project manage the design and build of your dream conservatory or glazed extension. Get your free quote today.',
+      'Upgrade your home with <strong>energy-efficient uPVC windows and doors</strong>. Our <strong>A-rated double glazing reduces heating bills by up to 30%</strong>, eliminates draughts, and dramatically cuts noise pollution. Available in various styles and colours, all installed by <strong>Which?-approved local experts</strong> with a <strong>10-year insurance-backed guarantee</strong>.',
     image: '/images/Hero/p-shaped-conservatory.webp',
     leftLabel: 'Get Free Quote',
     leftHref: '/quote',
@@ -35,7 +35,7 @@ const items: readonly Feature[] = [
   {
     title: 'Double Glazing Specialists In Leeds',
     text:
-      'Local family-run business for high security, A-rated windows and doors in uPVC, timber and aluminium. Proudly serving Leeds, Pudsey, Horsforth, Cookridge and across West & North Yorkshire. Request your FREE no-obligation online quote 24/7. Discuss your project today with our home improvement experts.',
+      'Local family-run business for <strong>high security, A-rated windows and doors</strong> in uPVC, timber and aluminium. Proudly serving Leeds, Pudsey, Horsforth, Cookridge and across West & North Yorkshire. Request your <strong>FREE no-obligation online quote 24/7</strong>. Discuss your project today with our home improvement experts.',
     image: '/images/Hero/shutterstock_1145334395-768x512.jpg',
     leftLabel: 'Get Free Quote',
     leftHref: '/quote',
@@ -58,7 +58,7 @@ const FeaturesUpvc: React.FC = () => {
               />
               <div className={styles.cardBody}>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardText}>{item.text}</p>
+                <p className={styles.cardText} dangerouslySetInnerHTML={{ __html: item.text }} />
                 <div className={styles.cardFooter}>
                   <a
                     href={item.leftHref}

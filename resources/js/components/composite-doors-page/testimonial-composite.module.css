@@ -10,8 +10,8 @@
 .intro { color: #101014; margin-top: 0.5rem; line-height: 1.8; font-size: clamp(1rem, 2.2vw, 1.125rem); }
 .intro strong { color: var(--brand-blue); font-weight: 700; }
 .ctaRow { margin-top: 0.75rem; display: flex; gap: 0.5rem; }
-.primaryBtn { background: var(--brand-blue); color: #fff; border: 1px solid var(--brand-blue); }
-.primaryBtn:hover { background: var(--brand-blue-dark); border-color: var(--brand-blue-dark); }
+.primaryBtn { background: linear-gradient(135deg, #0a6b90, #4cb5e7); color: #fff; border: none; box-shadow: 0 4px 12px rgba(10, 107, 144, 0.3); transition: all 0.2s ease; }
+.primaryBtn:hover { background: linear-gradient(135deg, #4cb5e7, #0a6b90); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(10, 107, 144, 0.4); }
 .videoWrap { display: grid; place-items: center; }
 .video { width: 100%; max-width: 1024px; border-radius: 1rem; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
 
@@ -46,8 +46,8 @@
 .star { line-height: 1; }
 .gText { color: #e6e6e6; line-height: 1.7; font-size: clamp(0.95rem, 2.2vw, 1.05rem); }
 .gFooter { display: flex; justify-content: space-between; align-items: center; }
-.readMore { background: var(--brand-blue); color: #fff; border: none; border-radius: 0.5rem; padding: 0.4rem 0.6rem; transition: background-color 160ms ease; }
-.readMore:hover { background: var(--brand-blue-dark); }
+.readMore { background: linear-gradient(135deg, #0a6b90, #4cb5e7); color: #fff; border: none; border-radius: 0.5rem; padding: 0.4rem 0.6rem; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(10, 107, 144, 0.3); }
+.readMore:hover { background: linear-gradient(135deg, #4cb5e7, #0a6b90); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(10, 107, 144, 0.4); }
 .gSource { font-size: 0.85rem; color: #c7c7c7; }
 
 @media (min-width: 768px) { .testimonialGrid { grid-template-columns: repeat(2, 1fr); } }

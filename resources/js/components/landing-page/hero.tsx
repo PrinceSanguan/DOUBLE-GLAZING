@@ -1,5 +1,6 @@
 import styles from './hero.module.css';
 import React from 'react';
+import { CheckCircle2 } from 'lucide-react';
 
 type HeroProps = {
 	imageUrl?: string;
@@ -35,7 +36,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 					'X-Requested-With': 'XMLHttpRequest',
 				},
 				body: JSON.stringify({ interest, when, postcode, address, name, number, email }),
-			});
+			}); 
 			const data = await res.json().catch(() => ({} as any));
 			if (!res.ok) {
 				const msg = (data && (data.message || data.error)) || 'Submission failed';
@@ -65,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 								<span className={styles.titleLight}>Select</span>
 								<span className={styles.titleItalic}>Products</span>
 							</h2>
-							<h1 className={styles.subtitle}>A-rated double glazing makes your Leeds home warmer, quieter, and more secure installed by Which? Approved local experts you can trust.</h1>
+							<h1 className={styles.subtitle}><strong>A-rated double glazing</strong> makes your Leeds home <strong>warmer, quieter, and more secure</strong> — installed by <strong>Which? Approved local experts</strong> you can trust.</h1>
 							<a href="/quote" className={styles.cardAction} aria-label="Get a free quote" title="Get a free quote">Get a Free Quote</a>
 						</div>
 
@@ -124,7 +125,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 						{/* Info card on lower-left */}
 						<aside className={styles.infoCardLeft} aria-label="Installations overview">
 							<div className={styles.cardBody}>
-								<p className={styles.cardText}>Cut Your Heating Bills by Up to 30% This Winter Leeds double glazing specialists</p>
+								<p className={styles.cardText}><strong>Cut Your Heating Bills by Up to 30%</strong> This Winter — Leeds double glazing specialists</p>
 								<ul className={styles.cardList} aria-label="Key benefits">
 									<li>Which?-approved, highly trusted local installers</li>
 									<li>Energy-efficient windows & doors that make your home warmer</li>
@@ -138,15 +139,18 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 					{showModal && (
 						<div className={styles.modalOverlay} role="dialog" aria-modal="true" aria-labelledby="heroQuoteModalTitle">
 							<div className={styles.modal}>
-								<h2 id="heroQuoteModalTitle" className={styles.modalTitle}>Confirm Submission</h2>
-								<p className={styles.modalText}>We received your {interest} quote details. Proceed back to the homepage?</p>
+								<div className={styles.modalIconWrapper}>
+									<CheckCircle2 size={56} strokeWidth={1.5} className={styles.modalIcon} />
+								</div>
+								<h2 id="heroQuoteModalTitle" className={styles.modalTitle}>Quote Request Received!</h2>
+								<p className={styles.modalText}>Thank you for your interest in {interest}. We've received your details and a Leeds specialist will contact you shortly to discuss your quote.</p>
 								<div className={styles.modalActions}>
 									<button
 										type="button"
 										className={styles.btnPrimary}
 										onClick={() => { try { localStorage.setItem('quoteSuccess', '1'); } catch {} window.location.assign('/'); }}
 									>
-										Confirm
+										Back to Home
 									</button>
 								</div>
 							</div>
