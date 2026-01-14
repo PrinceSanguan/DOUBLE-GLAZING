@@ -27,11 +27,7 @@
     <!-- End Google Tag Manager -->
 
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600&display=swap" rel="stylesheet" />
-    
-    <!-- Preload critical images -->
-    <link rel="preload" as="image" href="/images/Hero/Airbrush-image-extender (6).webp" type="image/webp" fetchpriority="high">
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
     @routes
     @viteReactRefresh
