@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './quote.module.css';
+import styles from '../../pages/quote.module.css';
 
 interface QuoteSuccessModalProps {
   interest: string;

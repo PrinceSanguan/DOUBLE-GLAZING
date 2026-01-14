@@ -4,7 +4,7 @@ import Header from '@/components/ui/header';
 import Footer from '@/components/ui/footer';
 import styles from './quote.module.css';
 
-const QuoteSuccessModal = React.lazy(() => import('./QuoteSuccessModal'));
+const QuoteSuccessModal = React.lazy(() => import('@/components/quote/QuoteSuccessModal'));
 
 const Quote: React.FC = () => {
   const [form, setForm] = useState({
