@@ -23,6 +23,7 @@ const Quote: React.FC = () => {
 
   // Prefill from query params and skip early steps if provided
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     try {
       const qs = new URLSearchParams(window.location.search);
       const qInterest = (qs.get('interest') || '').trim();

@@ -6,6 +6,7 @@ const ELFSIGHT_APP_CLASS = 'elfsight-app-b8e15738-3700-4660-b729-c75bcecdae5b';
 
 const GoogleReviews: React.FC = () => {
   React.useEffect(() => {
+	if (typeof document === 'undefined') return;
 	// Inject Elfsight platform script once
 	const exists = document.querySelector(`script[src="${ELFSIGHT_SRC}"]`);
 	if (!exists) {

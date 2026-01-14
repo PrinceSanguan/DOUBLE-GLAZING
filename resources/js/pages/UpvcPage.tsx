@@ -19,6 +19,7 @@ import LatestVideosUpvc from '@/components/upvc-page/latest-videos-upvc';
 export default function UpvcPage() {
     const [showToast, setShowToast] = React.useState(false);
     React.useEffect(() => {
+        if (typeof window === 'undefined') return;
         try {
             const flag = localStorage.getItem('quoteSuccess');
             if (flag === '1') {
