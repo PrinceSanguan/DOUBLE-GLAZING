@@ -5,7 +5,7 @@ import purgecss from 'vite-plugin-purgecss';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.tsx'],
@@ -33,7 +33,7 @@ export default defineConfig({
         cssCodeSplit: true,
         sourcemap: false,
         rollupOptions: {
-            output: {
+            output: !isSsrBuild ? {
                 manualChunks: {
                     vendor: [
                         'react',
@@ -47,7 +47,7 @@ export default defineConfig({
                         '@radix-ui/react-slot',
                     ],
                 },
-            },
+            } : undefined,
         },
     },
     resolve: {
@@ -56,4 +56,4 @@ export default defineConfig({
             'ziggy-js': resolve(__dirname, 'vendor/tightenco/ziggy'),
         },
     },
-});
+}));
