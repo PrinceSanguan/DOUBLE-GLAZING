@@ -32,16 +32,22 @@ export default defineConfig({
                 drop_debugger: true,
                 passes: 2,
                 pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+                ecma: 2020,
             },
             mangle: {
                 safari10: true,
             },
+            format: {
+                comments: false,
+            },
         },
         chunkSizeWarningLimit: 1000,
+        reportCompressedSize: false,
         rollupOptions: {
             output: {
                 manualChunks(id) {
                     if (id.includes('node_modules')) {
+                        // More stable chunking - group by package
                         if (id.includes('@radix-ui')) {
                             return 'radix-ui';
                         }
@@ -51,14 +57,22 @@ export default defineConfig({
                         if (id.includes('framer-motion')) {
                             return 'animations';
                         }
+                        if (id.includes('@inertiajs')) {
+                            return 'inertia';
+                        }
+                        if (id.includes('lucide-react')) {
+                            return 'icons';
+                        }
                     }
                 },
-                experimentalMinChunkSize: 20000,
+                experimentalMinChunkSize: 15000,
+                chunkFileNames: 'assets/[name]-[hash].js',
+                entryFileNames: 'assets/[name]-[hash].js',
+                assetFileNames: 'assets/[name]-[hash][extname]',
             },
         },
     },
     optimizeDeps: {
         include: ['react', 'react-dom', '@inertiajs/react'],
-        exclude: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
     },
 });

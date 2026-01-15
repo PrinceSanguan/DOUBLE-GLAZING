@@ -12,6 +12,10 @@
         html {
             background-color: oklch(1 0 0);
         }
+        /* Critical CSS - inline above-the-fold styles */
+        body{margin:0;padding:0;min-height:100vh}
+        .font-sans{font-family:'Instrument Sans',ui-sans-serif,system-ui,sans-serif}
+        .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
     </style>
 
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
@@ -25,23 +29,31 @@
     <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
     
     <!-- Performance: Preload critical assets -->
-    <link rel="preload" as="image" href="/images/Hero/Airbrush-image-extender (6).webp" fetchpriority="high">
-    <link rel="preload" as="style" href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600">
+    <link rel="preload" as="image" href="/images/Hero/Airbrush-image-extender (6).webp" fetchpriority="high" imagesrcset="/images/Hero/Airbrush-image-extender (6).webp 1x">
+    <link rel="preload" as="style" href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" fetchpriority="high">
 
     <!-- Optimized font loading -->
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600&display=swap" rel="stylesheet" /></noscript>
 
-    <!-- Google Tag Manager (Deferred for performance) -->
+    <!-- Google Tag Manager (Optimized timing) -->
     <script>
-    window.addEventListener('load', function() {
-        setTimeout(function() {
+    (function() {
+        var gtmLoad = function() {
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-TDMS6FF5');
-        }, 1000);
-    });
+        };
+        if (document.readyState === 'complete') {
+            setTimeout(gtmLoad, 500);
+        } else {
+            window.addEventListener('load', function() {
+                setTimeout(gtmLoad, 500);
+            });
+        }
+    })();
     </script>
     <!-- End Google Tag Manager -->
 
