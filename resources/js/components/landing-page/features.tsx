@@ -51,10 +51,13 @@ const Features: React.FC = () => {
         <div className={styles.grid}>
           {items.map((item, idx) => (
             <article className={styles.card} key={idx} aria-label={item.title}>
-              <div
+              <img
+                src={item.image}
+                alt={item.title}
                 className={styles.cardImage}
-                style={{ backgroundImage: `url(${item.image})` }}
-                aria-label={`${item.title} image`}
+                loading="lazy"
+                decoding="async"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
               <div className={styles.cardBody}>
                 <h3 className={styles.cardTitle}>{item.title}</h3>

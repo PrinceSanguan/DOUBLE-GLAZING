@@ -6,14 +6,18 @@ const ELFSIGHT_APP_CLASS = 'elfsight-app-b8e15738-3700-4660-b729-c75bcecdae5b';
 
 const GoogleReviews: React.FC = () => {
   React.useEffect(() => {
-	// Inject Elfsight platform script once
-	const exists = document.querySelector(`script[src="${ELFSIGHT_SRC}"]`);
-	if (!exists) {
-	  const s = document.createElement('script');
-	  s.src = ELFSIGHT_SRC;
-	  s.async = true;
-	  document.body.appendChild(s);
-	}
+	// Defer Elfsight script loading by 2 seconds to prioritize page content
+	const timer = setTimeout(() => {
+	  const exists = document.querySelector(`script[src="${ELFSIGHT_SRC}"]`);
+	  if (!exists) {
+		const s = document.createElement('script');
+		s.src = ELFSIGHT_SRC;
+		s.async = true;
+		s.defer = true;
+		document.body.appendChild(s);
+	  }
+	}, 2000);
+	return () => clearTimeout(timer);
   }, []);
 
   return (

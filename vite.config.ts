@@ -30,8 +30,14 @@ export default defineConfig({
             compress: {
                 drop_console: true,
                 drop_debugger: true,
+                passes: 2,
+                pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+            },
+            mangle: {
+                safari10: true,
             },
         },
+        chunkSizeWarningLimit: 1000,
         rollupOptions: {
             output: {
                 manualChunks(id) {
@@ -42,9 +48,17 @@ export default defineConfig({
                         if (id.includes('react') || id.includes('react-dom')) {
                             return 'vendor';
                         }
+                        if (id.includes('framer-motion')) {
+                            return 'animations';
+                        }
                     }
                 },
+                experimentalMinChunkSize: 20000,
             },
         },
+    },
+    optimizeDeps: {
+        include: ['react', 'react-dom', '@inertiajs/react'],
+        exclude: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
     },
 });

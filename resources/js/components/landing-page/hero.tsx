@@ -19,6 +19,16 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 	const [submitError, setSubmitError] = React.useState<string | null>(null);
 	const [showModal, setShowModal] = React.useState(false);
 
+	// Preload hero image
+	React.useEffect(() => {
+		const link = document.createElement('link');
+		link.rel = 'preload';
+		link.as = 'image';
+		link.href = imageUrl;
+		link.fetchPriority = 'high';
+		document.head.appendChild(link);
+	}, [imageUrl]);
+
 	async function submitQuickQuote(e: React.FormEvent) {
 		e.preventDefault();
 		if (!number.trim()) {
