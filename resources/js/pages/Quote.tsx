@@ -114,7 +114,7 @@ const Quote: React.FC = () => {
                     key: 'Windows',
                     title: 'Windows',
                     text: 'Double glazed windows add style, security and energy efficiency to your home.',
-                    image: '/images/Hero/dsc9477-1-663x1024.jpg',
+                    image: '/images/Hero/dsc9477-1-663x1024.webp',
                     cta: 'Start Window Quote',
                   },
                   {
