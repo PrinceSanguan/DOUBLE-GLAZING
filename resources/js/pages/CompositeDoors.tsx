@@ -168,7 +168,7 @@ export default function CompositeDoors() {
                                     lineHeight: 1.5,
                                 }}
                             >
-                                Upgrade your front door this winter and save instantly on high-security composite doors fully fitted by trusted Leeds installers.
+                                High-security composite doors with 10-year guarantee. Ultion lock included. We won’t be beaten.
                             </p>
                             
                             <div
@@ -198,7 +198,7 @@ export default function CompositeDoors() {
                                         color: '#3a3f4b',
                                     }}
                                 >
-                                    Save Up To 25% in Our Winter Sale
+                                    Up To 25% Off Composite Doors
                                 </div>
                             </div>
                             
