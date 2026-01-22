@@ -104,7 +104,13 @@ const Quote: React.FC = () => {
             </p>
           </header>
           <div className={styles.body}>
-          <form onSubmit={submit} className={styles.stepGrid}>
+          <form
+            onSubmit={submit}
+            className={styles.stepGrid}
+            data-quote-form="1"
+            data-final-step={step === 1 ? '1' : '0'}
+            data-interest={form.interest}
+          >
           {step === 0 && (
             <section aria-label="Choose a product category" className={styles.stepGrid}>
               <span className={styles.centerText} style={{ fontWeight: 600, fontSize: '1rem' }}>What are you interested in?</span>

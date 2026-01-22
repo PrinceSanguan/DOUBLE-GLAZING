@@ -84,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 						<div className={styles.rightCards}>
 							{/* Quick quote card */}
 							<aside className={styles.quoteCard} aria-label="Quick quote">
-								<form className={styles.form} onSubmit={submitQuickQuote}>
+								<form className={styles.form} onSubmit={submitQuickQuote} data-quote-form="1" data-final-step="1" data-interest={interest}>
 									<div className={styles.formHeader}>
 											<h3 className={styles.formTitle}>Get Your Personalised Double Glazing Quote</h3>
 											<p className={styles.formSubtitle}>Designed for Leeds homeowners who want warmer homes, lower energy bills, and expert installation.</p>
@@ -93,6 +93,7 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 										<label htmlFor="qq-interest" className={styles.label}>I\'m interested in</label>
 										<select
 											id="qq-interest"
+											name="interest"
 											className={styles.select}
 											value={interest}
 											onChange={(e) => setInterest(e.target.value)}
@@ -104,25 +105,25 @@ const Hero: React.FC<HeroProps> = ({ imageUrl = '/images/Hero/Airbrush-image-ext
 									</div>
 									<div className={styles.formGroup}> 
 										<label htmlFor="qq-postcode" className={styles.label}>Postcode</label>
-										<input id="qq-postcode" className={styles.input} value={postcode} onChange={(e) => setPostcode(e.target.value)} placeholder="e.g., LS1 1AA" />
+										<input id="qq-postcode" name="postcode" className={styles.input} value={postcode} onChange={(e) => setPostcode(e.target.value)} placeholder="e.g., LS1 1AA" />
 									</div>
 									<div className={styles.formGroup}> 
 										<label htmlFor="qq-address" className={styles.label}>Address</label>
-										<textarea id="qq-address" className={styles.textarea} rows={3} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street, City" />
+										<textarea id="qq-address" name="address" className={styles.textarea} rows={3} value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Street, City" />
 									</div>
 									<div className={styles.formRow}>
 										<div className={styles.formGroup}>
 											<label htmlFor="qq-name" className={styles.label}>Name</label>
-											<input id="qq-name" className={styles.input} value={name} onChange={(e) => setName(e.target.value)} />
+											<input id="qq-name" name="name" className={styles.input} value={name} onChange={(e) => setName(e.target.value)} />
 										</div>
 										<div className={styles.formGroup}>
 											<label htmlFor="qq-number" className={styles.label}>Number</label>
-											<input id="qq-number" ref={numberRef} className={styles.input} value={number} onChange={(e) => setNumber(e.target.value)} inputMode="tel" aria-required="true" aria-invalid={!!submitError && !number.trim() ? true : undefined} />
+											<input id="qq-number" name="number" ref={numberRef} className={styles.input} value={number} onChange={(e) => setNumber(e.target.value)} inputMode="tel" aria-required="true" aria-invalid={!!submitError && !number.trim() ? true : undefined} />
 										</div>
 									</div>
 									<div className={styles.formGroup}> 
 										<label htmlFor="qq-email" className={styles.label}>Email</label>
-										<input id="qq-email" className={styles.input} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+										<input id="qq-email" name="email" className={styles.input} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 									</div>
 									{submitError && <div role="alert" style={{ color: '#ffd1d1' }}>{submitError}</div>}
 									<button type="submit" className={styles.cardAction} aria-label="Submit" disabled={submitting}>
